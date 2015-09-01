@@ -19,7 +19,7 @@
 
 		<!-- Header -->
 			<header id="header" class="skel-layers-fixed">
-				<h1><a href="#">Ion</a></h1>
+				<img src="images/logo.png" alt="BookShare" height=100 width=200>
 				<nav id="nav">
 					<ul>
 						<li><a href="index.html">Home</a></li>
@@ -32,7 +32,7 @@
 			</header>
 
 		<!-- Banner -->
-			<section id="banner">
+			<!-- <section id="banner">
 				<div class="inner">
 					<h2>This is Ion</h2>
 					<p>A free responsive template by <a href="http://templated.co">TEMPLATED</a></p>
@@ -41,43 +41,41 @@
 						<li><a href="#elements" class="button big alt">Learn More</a></li>
 					</ul>
 				</div>
-			</section>
+			</section> -->
 
 		<!-- One -->
 			<section id="one" class="wrapper style1">
 				<header class="major">
-					<h2>Ipsum feugiat consequat</h2>
-					<p>Tempus adipiscing commodo ut aliquam blandit</p>
+					<h2>Search for Textbooks</h2>
+					
+					<form action="search">
+						<input type="text" name="name" placeholder="Search by Name"><br>
+						<input type="text" name="author" placeholder="Search by Author"><br>
+						<input type="text" name="isbn" placeholder="Search by ISBN"><br>
+						<input type="text" name="publisher" placeholder="Search by Publisher"><br>
+						<select>
+							<option value="building">Building and planning</option>
+							<option value="business">Business</option>
+							<option value="creative">Creative, design and performance</option>
+							<option value="education">Education</option>
+							<option value="engineering">Engineering</option>
+							<option value="health">Health and community</option>
+							<option value="it">Information technology</option>
+							<option value="languages">Languages</option>
+							<option value="law">Law and justice</option>
+							<option value="science">Science and mathematics</option>
+						</select>	
+						<br>
+						<input type="submit" value="Submit">
+					</form>
+
 				</header>
-				<div class="container">
-					<div class="row">
-						<div class="4u">
-							<section class="special box">
-								<i class="icon fa-area-chart major"></i>
-								<h3>Justo placerat</h3>
-								<p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
-							</section>
-						</div>
-						<div class="4u">
-							<section class="special box">
-								<i class="icon fa-refresh major"></i>
-								<h3>Blandit quis curae</h3>
-								<p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
-							</section>
-						</div>
-						<div class="4u">
-							<section class="special box">
-								<i class="icon fa-cog major"></i>
-								<h3>Amet sed accumsan</h3>
-								<p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
-							</section>
-						</div>
-					</div>
-				</div>
+				
+				
 			</section>
 			
 		<!-- Two -->
-			<section id="two" class="wrapper style2">
+			<!-- <section id="two" class="wrapper style2">
 				<header class="major">
 					<h2>Commodo accumsan aliquam</h2>
 					<p>Amet nisi nunc lorem accumsan</p>
@@ -106,10 +104,10 @@
 						</div>
 					</div>
 				</div>
-			</section>
+			</section> -->
 
 		<!-- Three -->
-			<section id="three" class="wrapper style1">
+			<!-- <section id="three" class="wrapper style1">
 				<div class="container">
 					<div class="row">
 						<div class="8u">
@@ -140,7 +138,7 @@
 						</div>
 					</div>
 				</div>
-			</section>			
+			</section>	 -->		
 			
 		<!-- Footer -->
 			<footer id="footer">
