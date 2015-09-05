@@ -13,4 +13,5 @@
 
 Route::get('/', 'Front@index');
 Route::get('/share', 'Front@share');
+Route::get('/search', 'Front@search');
 Route::resource('books', 'BookController');

@@ -17,6 +17,10 @@ class Front extends Controller
         return view('share', array('page' => 'share'));
     }
 
+    public function search() {
+        return view('search', array('page' => 'search'));
+    }
+
     // public function product_details($id) {
     //     return 'product details page';
     // }
