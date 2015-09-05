@@ -31,7 +31,8 @@ class BookController extends Controller
     }
 
     public function share() {
-        return view('books.share', array('page' => 'books.share'));
+        // return view('books.share', array('page' => 'books.share'));
+        return View::make('books.share');
     }
 
     /**

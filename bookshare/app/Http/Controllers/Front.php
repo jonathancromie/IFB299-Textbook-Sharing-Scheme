@@ -32,7 +32,7 @@ class Front extends Controller
         return view('search', array('page' => 'search'));
     }
 
-    public function results($search) {
+    public function results() {
         // $books = Book::where('name', 'LIKE', Input::get('search'), 'AND', 'author', 'LIKE', Input::get('search'), 'AND', 'isbn', 'LIKE', Input::get('search'))->get();
         // $books = Book::whereRaw('name like ', Input::get('search'), array(25))->get();
 
@@ -40,11 +40,6 @@ class Front extends Controller
         $query = '%'.$search.'%';
 
         $books = Book::where('name', 'like', $query, 'and', 'author', 'like', $query, 'and', 'isbn', 'like', $query, 'and', 'faculty', 'like', $query)->get();
-
-        // foreach ($books as $book) {
-        //     echo ($book->book_id . " " . $book->name);
-        //     echo ('<br>');
-        // }
 
         return View::make('results')->with('books', $books);
     }
