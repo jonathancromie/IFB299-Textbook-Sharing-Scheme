@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 use BookShare\Http\Requests;
 use BookShare\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+
+use BookShare\Book;
+use View;
+
 class Front extends Controller
 {
     public function index() {
@@ -19,6 +26,15 @@ class Front extends Controller
 
     public function search() {
         return view('search', array('page' => 'search'));
+    }
+
+    public function results() {
+        $books = Book::where('name', '=', 'a')->get();
+
+        foreach ($books as $book) {
+            echo ($book->name);
+            echo ('<br>');
+        }
     }
 
     // public function product_details($id) {

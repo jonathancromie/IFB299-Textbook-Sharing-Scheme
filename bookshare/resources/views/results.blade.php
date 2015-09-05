@@ -26,12 +26,6 @@
             <td>{{ $value->publisher }}</td>
             <td>{{ $value->edition }}</td>
             <td>{{ $value->faculty }}</td>
-
-            <!-- we will also add show, edit, and delete buttons -->
-            <!-- <<td>
-                <a class="btn btn-small btn-success" href="{{ URL::to('nerds/' . $value->id) }}">Show this Nerd</a>
-                <a class="btn btn-small btn-info" href="{{ URL::to('nerds/' . $value->id . '/edit') }}">Edit this Nerd</a>
-            </td> -->
         </tr>
     @endforeach
     </tbody>
