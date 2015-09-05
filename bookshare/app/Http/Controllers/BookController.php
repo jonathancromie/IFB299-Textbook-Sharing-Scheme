@@ -10,7 +10,7 @@ use BookShare\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
-use Http\Controllers\Session;
+
 
 use BookShare\Book;
 use View;
@@ -50,31 +50,21 @@ class BookController extends Controller
     {
         // validate
         // read more on validation at http://laravel.com/docs/validation
-        // $rules = array('name' => 'required', 'author' => 'required', 'isbn' => 'required', 'publisher' => 'required', 'edition' => 'required|numeric', 'faculty' => 'required');
-        // $validator = Validator::make(Input::all(), $rules);
+        $rules = array('name' => 'required', 
+                    'author' => 'required',
+                    'isbn' => 'required',
+                    'publisher' => 'required',
+                    );
+        $validator = Validator::make(Input::all(), $rules);
 
         // // process the login
-        // if ($validator->fails()) {
-        //     return Redirect::to('books/create')
-        //         ->withErrors($validator)
-        //         ->withInput(Input::except('password'));
-        // } else {
-        //     // store
-        //     $book = new Book;
-        //     $book->name = Input::get('name');
-        //     $book->author = Input::get('author');
-        //     $book->isbn = Input::get('isbn');
-        //     $book->publisher = Input::get('publisher');
-        //     $book->edition = Input::get('edition');
-        //     $book->faculty = Input::get('faculty');
-        //     $book->save();
-
-        //     // redirect
-        //     Session::flash('message', 'Successfully created book!');
-        //     return Redirect::to('books');
-        // }
-
-        $book = new Book;
+        if ($validator->fails()) {
+            return Redirect::to('books/create')
+                ->withErrors($validator)
+                ->withInput(Input::except('password'));
+        } else {
+            // store
+            $book = new Book;
             $book->name = Input::get('name');
             $book->author = Input::get('author');
             $book->isbn = Input::get('isbn');
@@ -86,6 +76,20 @@ class BookController extends Controller
             // redirect
             \Session::flash('message', 'Successfully created book!');
             return Redirect::to('books');
+        }
+
+        // $book = new Book;
+        //     $book->name = Input::get('name');
+        //     $book->author = Input::get('author');
+        //     $book->isbn = Input::get('isbn');
+        //     $book->publisher = Input::get('publisher');
+        //     $book->edition = Input::get('edition');
+        //     $book->faculty = Input::get('faculty');
+        //     $book->save();
+
+        //     // redirect
+        //     Session::flash('message', 'Successfully created book!');
+        //     return Redirect::to('books');
     }
 
     /**
