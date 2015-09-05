@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>@yield('title')</title>
@@ -22,10 +23,10 @@
             <h1> &nbsp; &nbsp; &nbsp; <a href="#">BookShare</a></h1>
             <nav id="nav">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="left-sidebar.html">Search</a></li>
-                    <li><a href="right-sidebar.html">Login</a></li>
-                    <li><a href="no-sidebar.html">Cart</a></li>
+                    <li><a href="index">Home</a></li>
+                    <li><a href="search">Search</a></li>
+                    <li><a href="login">Login</a></li>
+                    <li><a href="cart">Cart</a></li>
                     <li><a href="#" class="button special">Sign Up</a></li>
                 </ul>
             </nav>
