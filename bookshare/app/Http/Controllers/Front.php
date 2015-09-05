@@ -9,9 +9,9 @@ use BookShare\Http\Controllers\Controller;
 
 class Front extends Controller
 {
-    // public function index() {
-    //     return view('home', array('page' => 'home'));
-    // }
+    public function index() {
+        return view('index', array('page' => 'index'));
+    }
 
     public function share() {
         return view('share', array('page' => 'share'));

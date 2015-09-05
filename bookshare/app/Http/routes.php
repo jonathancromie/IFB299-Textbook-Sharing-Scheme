@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/hello/{name}', 'Hello@show');
-Route::get('/','Front@index');
-Route::get('/share','Front@share');
+Route::get('/', 'Front@index');
+Route::get('/share', 'Front@share');
+Route::resource('books', 'BookController');
