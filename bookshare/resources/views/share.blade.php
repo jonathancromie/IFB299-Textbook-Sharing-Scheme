@@ -7,7 +7,7 @@
 
 	<div class='share-form'>
 		<h2>Share Textbook</h2>
-		<form method="POST" action="profile" accept-charset="UTF-8">
+		<form method="POST" action="books" accept-charset="UTF-8">
 			<input type="text" name="name" placeholder="Name" required><br>
 			<input type="text" name="author" placeholder="Author" required><br>
 			<input type="text" name="isbn" placeholder="ISBN" required><br>
@@ -26,6 +26,7 @@
 				<option value="science">Science and mathematics</option>
 			</select>	
 			<br>
+			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<input type="submit" value="Submit">
 		</form>
 	</div>
