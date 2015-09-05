@@ -1,10 +1,10 @@
-<html>
-<head>
+@extends('layouts.master')
 
-</head>
+@section('title', 'Share Textbook')
 
-<body>
-	<table class="table table-striped table-bordered">
+@section('content')
+    @parent
+	<table>
     <thead>
         <tr>
             <td>ID</td>
@@ -36,4 +36,4 @@
     @endforeach
     </tbody>
 </table>
-</body>
+@endsection

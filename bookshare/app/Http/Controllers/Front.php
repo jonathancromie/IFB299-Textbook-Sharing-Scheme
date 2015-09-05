@@ -20,6 +20,10 @@ class Front extends Controller
         return view('index', array('page' => 'index'));
     }
 
+    /* 
+     * REMOVE ALL THESE ONCE IN BOOKCONTROLER
+     */
+
     public function share() {
         return view('share', array('page' => 'share'));
     }
@@ -28,7 +32,7 @@ class Front extends Controller
         return view('search', array('page' => 'search'));
     }
 
-    public function results() {
+    public function results($search) {
         // $books = Book::where('name', 'LIKE', Input::get('search'), 'AND', 'author', 'LIKE', Input::get('search'), 'AND', 'isbn', 'LIKE', Input::get('search'))->get();
         // $books = Book::whereRaw('name like ', Input::get('search'), array(25))->get();
 
@@ -37,10 +41,12 @@ class Front extends Controller
 
         $books = Book::where('name', 'like', $query, 'and', 'author', 'like', $query, 'and', 'isbn', 'like', $query, 'and', 'faculty', 'like', $query)->get();
 
-        foreach ($books as $book) {
-            echo ($book->book_id . " " . $book->name);
-            echo ('<br>');
-        }
+        // foreach ($books as $book) {
+        //     echo ($book->book_id . " " . $book->name);
+        //     echo ('<br>');
+        // }
+
+        return View::make('results')->with('books', $books);
     }
 
     // public function product_details($id) {

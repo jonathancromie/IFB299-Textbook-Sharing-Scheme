@@ -13,7 +13,7 @@
 
 Route::get('/index', 'Front@index');
 Route::get('/share', 'Front@share');
-Route::get('/search', 'Front@search');
-Route::get('/results', 'Front@results');
+// Route::get('/search', 'Front@search');
+// Route::get('/results', 'Front@results');
 Route::resource('books', 'BookController');
 
