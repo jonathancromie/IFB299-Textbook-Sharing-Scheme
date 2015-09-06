@@ -44,7 +44,7 @@ class BookController extends Controller
         return view('books.search', array('page' => 'search'));
     }
 
-    public function results($search) {
+    public function results() {
         // $books = Book::where('name', 'LIKE', Input::get('search'), 'AND', 'author', 'LIKE', Input::get('search'), 'AND', 'isbn', 'LIKE', Input::get('search'))->get();
         // $books = Book::whereRaw('name like ', Input::get('search'), array(25))->get();
 

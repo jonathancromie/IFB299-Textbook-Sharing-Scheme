@@ -19,8 +19,8 @@
     <body>
         <!-- Header -->
         <header id="header" class="skel-layers-fixed">
-            <img src="images/logo-notext.png" alt="logo" width="50px" height="50px">
-            <h1> &nbsp; &nbsp; &nbsp; <a href="#">BookShare</a></h1>
+            <a href="index"><img src="images/logo-notext.png" alt="logo" align="left" width="40px" height="50px"></a>
+            <h1> &nbsp; &nbsp; &nbsp; <a href="index">BookShare</a></h1>
             <nav id="nav">
                 <ul>
                     <li><a href="index">Home</a></li>
