@@ -28,6 +28,12 @@ class Front extends Controller
         return view('share', array('page' => 'share'));
     }
 
+    public function hire() {
+        $books = Book::all();
+
+        return view('hire', compact('books'));
+    }
+
     public function search() {
         return view('search', array('page' => 'search'));
     }
@@ -39,7 +45,12 @@ class Front extends Controller
         $search = Input::get('search');
         $query = '%'.$search.'%';
 
-        $books = Book::where('name', 'like', $query, 'and', 'author', 'like', $query, 'and', 'isbn', 'like', $query, 'and', 'faculty', 'like', $query)->get();
+        // $books = Book::where('name', 'like', $query, 'and', 'author', 'like', $query, 'and', 'isbn', 'like', $query, 'and', 'faculty', 'like', $query)->get();
+
+        $books = Book::where('name', 'like', $query)
+                        ->orWhere('author', 'like', $query)
+                        ->orWhere('isbn', 'like', $query)
+                        ->orWhere('faculty', 'like', $query)->get();
 
         return View::make('results')->with('books', $books);
     }

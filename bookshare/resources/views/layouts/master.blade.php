@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>@yield('title')</title>
+        @yield('scripts')
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -81,7 +82,7 @@
                 </div>
             </div>
             <ul class="copyright">
-                <li>&copy; Untitled. All rights reserved.</li>
+                <li>&copy; Scrumbags Limited. All rights reserved.</li>
                 <li>Design: <a href="http://templated.co">TEMPLATED</a></li>
                 <li>Images: <a href="http://unsplash.com">Unsplash</a></li>
             </ul>

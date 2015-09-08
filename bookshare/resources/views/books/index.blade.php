@@ -1,39 +1,52 @@
 @extends('layouts.master')
 
-@section('title', 'Share Textbook')
+@section('title', 'Home')
 
 @section('content')
     @parent
-	<table>
-    <thead>
-        <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Author</td>
-            <td>ISBN</td>
-            <td>Publisher</td>
-            <td>Edition</td>
-            <td>Faculty</td>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach($books as $key => $value)
-        <tr>
-            <td>{{ $value->book_id }}</td>
-            <td>{{ $value->name }}</td>
-            <td>{{ $value->author }}</td>
-            <td>{{ $value->isbn }}</td>
-            <td>{{ $value->publisher }}</td>
-            <td>{{ $value->edition }}</td>
-            <td>{{ $value->faculty }}</td>
 
-            <!-- we will also add show, edit, and delete buttons -->
-            <!-- <<td>
-                <a class="btn btn-small btn-success" href="{{ URL::to('nerds/' . $value->id) }}">Show this Nerd</a>
-                <a class="btn btn-small btn-info" href="{{ URL::to('nerds/' . $value->id . '/edit') }}">Edit this Nerd</a>
-            </td> -->
-        </tr>
-    @endforeach
-    </tbody>
-</table>
+    <!-- Banner For Homepage-->
+    <section id="banner">
+        <div class="inner">
+            <h2>This is BookShare</h2>
+            <p>A free way to share textbooks for students at <a href="http://www.qut.edu.au">QUT</a></p>
+            <ul class="actions">
+                <li><a href="#content" class="button big special">Sign Up</a></li>
+                <li><a href="#elements" class="button big alt">Learn More</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- One -->
+            <section id="one" class="wrapper style1">
+                <header class="major">
+                    <h2>Ipsum feugiat consequat</h2>
+                    <p>Tempus adipiscing commodo ut aliquam blandit</p>
+                </header>
+                <div class="container">
+                    <div class="row">
+                        <div class="4u">
+                            <section class="special box">
+                                <i class="icon fa-area-chart major"></i>
+                                <a href="search"><h3>Find a Textbook</h3></a>
+                                <p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
+                            </section>
+                        </div>
+                        <div class="4u">
+                            <section class="special box">
+                                <i class="icon fa-refresh major"></i>
+                                <a href="share"><h3>Share a Textbook</h3></a>
+                                <p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
+                            </section>
+                        </div>
+                        <div class="4u">
+                            <section class="special box">
+                                <i class="icon fa-cog major"></i>
+                                <a href="hire"><h3>Hire a Textbook</h3></a>
+                                <p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </section>  
 @endsection

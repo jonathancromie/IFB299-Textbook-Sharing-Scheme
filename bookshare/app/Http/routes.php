@@ -11,9 +11,15 @@
 |
 */
 
+
+/* Re-route these when changing to BookController */
 Route::get('/index', 'Front@index');
 Route::get('/share', 'Front@share');
+Route::get('/hire', 'Front@hire');
 Route::get('/search', 'Front@search');
 Route::get('/results', 'Front@results');
-Route::resource('books', 'BookController');
+// Route::resource('books', 'BookController');
+// Route::get('search', 'BooksController@search');
+// Route::get('share', 'BookController@share');
+// Route::get('hire', 'BookController@hire');
 
