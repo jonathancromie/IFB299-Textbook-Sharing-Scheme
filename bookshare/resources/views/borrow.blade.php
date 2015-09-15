@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Hire Textbook')
+@section('title', 'Borrow Textbook')
 
 @section('content')
     @parent
@@ -29,7 +29,7 @@
             <td>{{ $value->faculty }}</td>
 
             <td>
-                <a class="btn btn-small btn-success" href="{{ URL::to('books/' . $value->book_id) }}">Hire this textbook</a>
+                <a class="btn btn-small btn-success" href="{{ URL::to('books/' . $value->book_id) }}">Borrow this textbook</a>
             </td>
 
         </tr>

@@ -10,6 +10,8 @@
 		<h2>Share Textbook</h2>
 		<?php echo $errors->first('isbn');?><br>
 		<?php echo $errors->first('edition');?>
+		<p>{{Session::get('bookError')}}</p>
+		<p>{{Session::get('sharerError')}}</p>
 		<form method="POST" action="books" accept-charset="UTF-8">
 			<input type="text" name="name" placeholder="Name" required><br>
 			<input type="text" name="author" placeholder="Author" required><br>

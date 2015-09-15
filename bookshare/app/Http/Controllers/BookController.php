@@ -12,7 +12,12 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
 use BookShare\Book;
+use BookShare\Sharer;
+use BookShare\Borrower;
+use BookShare\Contract;
+use BookShare\Student;
 use View;
+use Log;
 
 class BookController extends Controller
 {
@@ -36,8 +41,8 @@ class BookController extends Controller
         return View::make('share');
     }
 
-    public function hire() {
-        return View::make('hire');
+    public function borrow() {
+        return View::make('borrow');
     }
 
     /**
@@ -90,37 +95,48 @@ class BookController extends Controller
                     );
         $validator = Validator::make(Input::all(), $rules);
 
-        // // process the login
+        // // process the share redirect
         if ($validator->fails()) {
             return Redirect::to('share')->withErrors($validator);
-        } else {
-            // store
-            $book = new Book;
-            $book->name = Input::get('name');
-            $book->author = Input::get('author');
-            $book->isbn = Input::get('isbn');
-            $book->publisher = Input::get('publisher');
-            $book->edition = Input::get('edition');
-            $book->faculty = Input::get('faculty');
-            $book->save();
+        } 
 
-            // redirect
-            \Session::flash('message', 'Successfully created book!');
-            return Redirect::to('books');
-        }
+        else {   
+            // store book
+            $book = Book::firstOrCreate(['name' => Input::get('name'),
+                                 'author' => Input::get('author'),
+                                 'isbn' => Input::get('isbn'),
+                                 'publisher' => Input::get('publisher'), 
+                                 'edition' => Input::get('edition'),
+                                 'faculty' => Input::get('faculty')
+                                 ]);
 
-        // $book = new Book;
-        //     $book->name = Input::get('name');
-        //     $book->author = Input::get('author');
-        //     $book->isbn = Input::get('isbn');
-        //     $book->publisher = Input::get('publisher');
-        //     $book->edition = Input::get('edition');
-        //     $book->faculty = Input::get('faculty');
-        //     $book->save();
 
-        //     // redirect
-        //     Session::flash('message', 'Successfully created book!');
-        //     return Redirect::to('books');
+            // /* Create and store sharer, borrower in contract */  
+            // /* DEVELOP LATER - Store borrowers after sharer_id and book_id exist - resdirect to user profile*/     
+            
+            $sharer_id = '09136690'; #needs fixing after registration is complete...student number to be stored in session after login
+         
+
+            if (Contract::where('sharer_id', '=', $sharer_id) && 
+                Contract::where('borrower_id', '=', '09136691') && 
+                Contract::where('book_id', '=', $book->book_id)) {
+                    // contract already exists
+                    \Session::flash('message', 'Contract already exists.');
+            }
+
+            else {
+                $contract = new Contract;   
+                $contract->sharer_id = $sharer_id;            
+                $contract->borrower_id = '09136691';
+                $contract->book_id = '23';
+                $contract->due_date = '2015-10-30';
+                $contract->save();
+
+                // redirect
+                return Redirect::to('books');
+                \Session::flash('message', 'Successfully created book!'); 
+            }
+        }            
     }
 
     /**

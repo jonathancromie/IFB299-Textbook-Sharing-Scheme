@@ -5,6 +5,8 @@
 @section('content')
 	@parent
 
+	{{Session::get('message')}}
+
 	<!-- Banner For Homepage-->
     <section id="banner">
         <div class="inner">

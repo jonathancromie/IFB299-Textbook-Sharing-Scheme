@@ -28,10 +28,9 @@ class Front extends Controller
         return view('share', array('page' => 'share'));
     }
 
-    public function hire() {
+    public function borrow() {
         $books = Book::all();
-
-        return view('hire', compact('books'));
+        return view('borrow', compact('books'));
     }
 
     public function search() {
