@@ -110,32 +110,24 @@ class BookController extends Controller
                                  'faculty' => Input::get('faculty')
                                  ]);
 
+            // needs fixing after registration is complete...student number to be stored in session after login
+            $sharer_id = '09136690';
+            $borrower_id = '09136691';
+            $book_id = 24;
+            $due_date = '2015-10=30';
 
             // /* Create and store sharer, borrower in contract */  
-            // /* DEVELOP LATER - Store borrowers after sharer_id and book_id exist - resdirect to user profile*/     
-            
-            $sharer_id = '09136690'; #needs fixing after registration is complete...student number to be stored in session after login
-         
+            // /* DEVELOP LATER - Store borrowers after sharer_id and book_id exist - resdirect to user profile*/   
+            $contract = Contract::firstOrCreate(['sharer_id' => $sharer_id,
+                                                'borrower_id' => $borrower_id,
+                                                'book_id' => $book_id,
+                                                'due_date' => $due_date
+                                                ]);  
 
-            if (Contract::where('sharer_id', '=', $sharer_id) && 
-                Contract::where('borrower_id', '=', '09136691') && 
-                Contract::where('book_id', '=', $book->book_id)) {
-                    // contract already exists
-                    \Session::flash('message', 'Contract already exists.');
-            }
 
-            else {
-                $contract = new Contract;   
-                $contract->sharer_id = $sharer_id;            
-                $contract->borrower_id = '09136691';
-                $contract->book_id = '23';
-                $contract->due_date = '2015-10-30';
-                $contract->save();
-
-                // redirect
-                return Redirect::to('books');
-                \Session::flash('message', 'Successfully created book!'); 
-            }
+            // redirect
+            return Redirect::to('books');
+            \Session::flash('message', 'Successfully created book!');             
         }            
     }
 
