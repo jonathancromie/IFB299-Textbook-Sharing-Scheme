@@ -4,7 +4,7 @@
 
 @section('content')
     @parent
-    <h2>Hire Textbook</h2>
+    <h2>Borrow Textbook</h2>
 	<table>
     <thead>
         <tr>
@@ -15,6 +15,7 @@
             <td>Publisher</td>
             <td>Edition</td>
             <td>Faculty</td>
+            <td>Image</td>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +28,7 @@
             <td>{{ $value->publisher }}</td>
             <td>{{ $value->edition }}</td>
             <td>{{ $value->faculty }}</td>
+            <td><img src="{{ public_path().'\images\24.png' }}"/></td>
 
             <td>
                 <a class="btn btn-small btn-success" href="{{ URL::to('books/' . $value->book_id) }}">Borrow this textbook</a>

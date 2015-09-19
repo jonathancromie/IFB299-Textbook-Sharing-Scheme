@@ -15,6 +15,7 @@
                 <td>Publisher</td>
                 <td>Edition</td>
                 <td>Faculty</td>
+                <td>Image</td>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +28,8 @@
                     <td>{{ $value->publisher }}</td>
                     <td>{{ $value->edition }}</td>
                     <td>{{ $value->faculty }}</td>
+                    <td>{{ base_path }}</td>
+                    <!-- <td><img src="{{ public_path().'/images'.$value->book_id}}"/></td> -->
 
                     <td>
                         <a class="btn btn-small btn-success" href="{{ URL::to('books/' . $value->book_id) }}">Borrow this textbook</a>

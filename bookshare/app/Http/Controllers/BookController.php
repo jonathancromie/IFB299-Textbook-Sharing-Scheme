@@ -107,8 +107,22 @@ class BookController extends Controller
                                  'isbn' => Input::get('isbn'),
                                  'publisher' => Input::get('publisher'), 
                                  'edition' => Input::get('edition'),
-                                 'faculty' => Input::get('faculty')
+                                 'faculty' => Input::get('faculty'),
                                  ]);
+
+            $book->save();
+
+            
+            $file = Input::file('fileToUpload');
+            $destinationPath = base_path().'/public/images/';
+            $extension = $file->getClientOriginalExtension();
+            $fileName = $book->book_id . '.' . $extension;
+
+            $file->move($destinationPath, $fileName);
+
+
+            // $imageName = $book->book_id . '.' . $request->file('image')->getClientOriginalExtension();
+            // $request->file('image')->move(base_path().'/public/images/', $imageName);
 
             // needs fixing after registration is complete...student number to be stored in session after login
             $sharer_id = '09136690';

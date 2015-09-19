@@ -12,7 +12,7 @@
 		<?php echo $errors->first('edition');?>
 		<p>{{Session::get('bookError')}}</p>
 		<p>{{Session::get('sharerError')}}</p>
-		<form method="POST" action="books" accept-charset="UTF-8">
+		<form method="POST" action="books" accept-charset="UTF-8" enctype="multipart/form-data">
 			<input type="text" name="name" placeholder="Name" required><br>
 			<input type="text" name="author" placeholder="Author" required><br>
 			<input type="text" name="isbn" placeholder="ISBN" required><br>	
@@ -31,6 +31,8 @@
 				<option value="Science and Mathematics">Science and Mathematics</option>
 			</select>	
 			<br>
+			<label for="fileToUpload">Upload image</label>
+			<input type="file" name="fileToUpload" id="fileToUpload"><br>
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<input type="submit" value="Submit">
 		</form>
