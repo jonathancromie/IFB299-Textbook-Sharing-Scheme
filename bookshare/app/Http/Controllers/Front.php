@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Redirect;
 use BookShare\Book;
 use View;
 
+use DB;
+
 class Front extends Controller
 {
     public function index() {
@@ -52,6 +54,17 @@ class Front extends Controller
                         ->orWhere('faculty', 'like', $query)->get();
 
         return View::make('results')->with('books', $books);
+    }
+
+    public function profile() {
+        $contract = DB::table('contracts')
+            ->join('students', 'contracts.sharer_id', '=', 'students.student_id')
+            ->join('books', 'contracts.book_id', '=', 'books.book_id')
+            ->select('students.first_name', 'students.last_name', 'books.name', 'contracts.due_date')
+            ->get();
+
+
+        return View::make('profile')->with('contract', $contract);
     }
 
     // public function product_details($id) {

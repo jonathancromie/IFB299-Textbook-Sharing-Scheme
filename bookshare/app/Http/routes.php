@@ -19,6 +19,7 @@ Route::get('/borrow', 'Front@borrow');
 Route::get('/search', 'Front@search');
 Route::get('/results', 'Front@results');
 Route::resource('books', 'BookController');
+Route::get('profile', 'Front@profile');
 // Route::get('search', 'BooksController@search');
 // Route::get('share', 'BookController@share');
 // Route::get('hire', 'BookController@hire');
