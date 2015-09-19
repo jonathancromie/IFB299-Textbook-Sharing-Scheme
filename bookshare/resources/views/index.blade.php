@@ -44,7 +44,7 @@
 						<div class="4u">
 							<section class="special box">
 								<i class="icon fa-cog major"></i>
-								<a href="hire"><h3>Hire a Textbook</h3></a>
+								<a href="borrow"><h3>Borrow a Textbook</h3></a>
 								<p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
 							</section>
 						</div>

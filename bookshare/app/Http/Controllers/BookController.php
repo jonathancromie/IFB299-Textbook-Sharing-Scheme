@@ -114,11 +114,12 @@ class BookController extends Controller
 
             
             $file = Input::file('fileToUpload');
-            $destinationPath = base_path().'/public/images/';
+            // $destinationPath = public_path().'/uploads';
             $extension = $file->getClientOriginalExtension();
             $fileName = $book->book_id . '.' . $extension;
+            $destinationPath = public_path("uploads/").$fileName;
 
-            $file->move($destinationPath, $fileName);
+            $file->move(public_path().'/uploads', $fileName);
 
 
             // $imageName = $book->book_id . '.' . $request->file('image')->getClientOriginalExtension();
