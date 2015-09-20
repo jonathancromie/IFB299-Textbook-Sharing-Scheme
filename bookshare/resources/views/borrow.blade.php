@@ -15,7 +15,7 @@
             <td>Publisher</td>
             <td>Edition</td>
             <td>Faculty</td>
-            <td></td>
+            <td>Image</td>
         </tr>
     </thead>
     <tbody>
@@ -28,10 +28,11 @@
             <td>{{ $value->publisher }}</td>
             <td>{{ $value->edition }}</td>
             <td>{{ $value->faculty }}</td>
-            <td><img src="{{ URL::to('uploads/' . $value->book_id . '.png') }}" alt="{{ $value->book_id.'.png' }}"/></td>
+            <!-- <td>{{ $value->photo }}</td> -->
+            <td><img src="{{ URL::to('uploads/' . $value->photo) }}" alt="{{ $value->book_id }}"/></td>
 
             <td>
-                <a class="btn btn-small btn-success" href="{{ URL::to('books/' . $value->book_id) }}">Borrow this textbook</a>
+                <a class="btn btn-small btn-success" href="{{ URL::to('books/' . $value->photo) }}">Borrow this textbook</a>
             </td>
 
         </tr>

@@ -32,7 +32,7 @@
 			</select>	
 			<br>
 			<label for="fileToUpload">Upload image</label>
-			<input type="file" name="fileToUpload" id="fileToUpload"><br>
+			<input type="file" name="image" id="image"><br>
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<input type="submit" value="Submit">
 		</form>

@@ -16,8 +16,11 @@ use BookShare\Sharer;
 use BookShare\Borrower;
 use BookShare\Contract;
 use BookShare\Student;
+use Session;
 use View;
 use Log;
+use BookShare\Photo;
+use Image;
 
 class BookController extends Controller
 {
@@ -107,23 +110,29 @@ class BookController extends Controller
                                  'isbn' => Input::get('isbn'),
                                  'publisher' => Input::get('publisher'), 
                                  'edition' => Input::get('edition'),
-                                 'faculty' => Input::get('faculty'),
+                                 'faculty' => Input::get('faculty')
                                  ]);
 
             $book->save();
 
-            
-            $file = Input::file('fileToUpload');
-            // $destinationPath = public_path().'/uploads';
-            $extension = $file->getClientOriginalExtension();
-            $fileName = $book->book_id . '.' . $extension;
-            $destinationPath = public_path("uploads/").$fileName;
 
-            $file->move(public_path().'/uploads', $fileName);
+            /* Add Error Checking */
+            if (Input::file('image')->isValid()) {
+                $file = Input::file('image');
+                $extension = $file->getClientOriginalExtension();
+                //Creating sha1 version of the filename in case of conflicts
+                // $sha1 = sha1($file->getClientOriginalName());  
+                $filename = $book->book_id . '.' . $extension;
 
+                $path = public_path("uploads/" . $filename);
+                Session::flash('message', $path);
 
-            // $imageName = $book->book_id . '.' . $request->file('image')->getClientOriginalExtension();
-            // $request->file('image')->move(base_path().'/public/images/', $imageName);
+                Image::make($file->getRealPath())->resize(100,150)->save($path);
+
+                $photo = new Photo;
+                $photo->photo = $filename;
+                $photo->save();
+            }
 
             // needs fixing after registration is complete...student number to be stored in session after login
             $sharer_id = '09136690';
@@ -142,7 +151,7 @@ class BookController extends Controller
 
             // redirect
             return Redirect::to('books');
-            \Session::flash('message', 'Successfully created book!');             
+            Session::flash('message', 'Successfully created book!');             
         }            
     }
 
