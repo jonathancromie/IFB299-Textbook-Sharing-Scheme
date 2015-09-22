@@ -28,6 +28,8 @@
                     <li><a href="search">Search</a></li>
                     <li><a href="profile">Profile</a></li>
                     <li><a href="login">Login</a></li>
+                    <li><a href="Toturial">Login</a></li>
+                    <li><a href="FAQ">Login</a></li>
                     <li><a href="#" class="button special">Sign Up</a></li>
                 </ul>
             </nav>
