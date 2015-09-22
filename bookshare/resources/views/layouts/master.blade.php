@@ -28,6 +28,9 @@
                     <li><a href="search">Search</a></li>
                     <li><a href="profile">Profile</a></li>
                     <li><a href="login">Login</a></li>
+                    <li><a href="Toturial.BLADE.PHP">Toturial</a></li>
+                    <li><a href="FAQ.BLADE.PHP">FAQ</a></li>
+                    <li><a href="TERMS.BLADE.PHP">Terms and conditions</a></li>
                     <li><a href="#" class="button special">Sign Up</a></li>
                 </ul>
             </nav>
