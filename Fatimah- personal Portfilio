@@ -1,0 +1,15 @@
+I have modified one item and have added 4 items to the current release.
+*Modified Items*
+1.	pro.php page
+This page is the user profile page. I have modified the page to add links to Settings page, Add Book page, and Feedback page.
+*Added Items*
+1.	settings.php page
+This page allows user to change almost all of his/her profile information such as name, sex, email, address, etc… except the username and password.
+The page will display all current values of user profile and have a Save Changes button to submit the changes made, and a Back button to back to user profile page.
+2.	addbook.php page
+This page allows user to add a book to database. User will enter book details such as ISBN, title, author(s), publish year, description then browse to the path to PDF file and image file and clicks Add Book button to submit. It also provides a Back button to user profile page.
+3.	feedback.php page
+This page is the feedback and rating page. It shows all feedback and ratings on the books that the user has added to the system. The details contain users who give feedback, the feedback, rating, and time.
+4.	book.php page
+This page is the book details page. It shows details for a particular book. The page displays an image for the book and its details. Some information of the book is displayed such as title, author(s), overall rating, and description.  It also provides a Download button to allow user to download the book.
+
