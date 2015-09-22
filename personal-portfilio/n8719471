@@ -1,18 +1,27 @@
-From the beginning of the semester I a great help to my fellow group members. Even though I struggled a little with getting use to github. But instead I would try to link them to my own github (which i find easier to maintain then the group one), or email them the files when needed. Here are some of the artifact I took :
+From the beginning of the semester I a great help to my fellow group members. Even
+though I struggled a little with getting use to github. But instead I would try to link
+them to my own github (which I find easier to maintain then the group one), or email
+them the files when needed. Here are some of the artefact I undertook:
+1- Creating website prototypes, which I believe helped us and our supervisor group
+(TEAM 41) to have a clear picture of the website. This helped us decide on things we
+should keep or improve. This is because some points are better understood visually.
+And cut on too much written details confusion, especially that we have too many
+stories (about 60).
+2- Story 57: I created the website main layout, css and designed the logo. This also
+include creating a navigation menu.
+3- Created tutorial page to help explaining the website to users this is related to S41.
+Also created FAQ, both include designing the css, html and generating the contents.
+We believe this pages will help the users with understanding the website.
+4- Create terms and conditions and we presented it to our supervisors team 41. Tis
+helps set rules between owners and users and keep professionalism. The creating of
+this artifact includes generating the html, css and content.
+5- created the log in & registration forms and set validation code. The used validation
+in html5.
+However, linking them to database was done by Jonathan. This related to S.
+6- Merge and edit the sides of html and db. and test the validity of some web pages.
+Also created separate include, img & css files to enable organization and make
+sharing and editing easier.
+7- Restrict login/registration to QUT students by using html5 validation to forms.
+Link to repo: https://github.com/yaman-alsahfi?tab=repositories
 
-1- Creating website prototypes, which I believe helped us and our supervisor group (TEAM 41) to have a clear picture of the website. This helped us decide on things we should keep or improve. This is because some points are better understood visually. And cut on too much written details confusion, especially that we have too many stories (about 60). 
-
-
-2- Story 57: I created the website main layout, css and designed the logo. This also include creating a navigation menu. 
-
-3- Created tutorial page to help explaining the website to users this is related to S41. Also created FAQ, both include designing the css,html and generating the contents. We believe this pages will help the users with understanding the website.
-
-4- Create terms and conditions and we presented it to our supervisors team 41. Tis helps set rules between owners and users and keep professionalism. The creating of this artifact includes generating the html,css and content. 
-
-5- created the log in & registration forms and set validation code. The used validation in html5. 
-However, linking them to database was done by jonathan.This related to S.
-
-6- Merge and edit the sides of html and db. and test the validity of some web pages. Also created separate include, img & css files to enable organization and make sharing and editing easier. 
-
-7- Restrict login/registration to qut students by using html5 validation to forms.
 
