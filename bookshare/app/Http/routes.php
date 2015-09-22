@@ -21,8 +21,8 @@ Route::get('/results', 'Front@results');
 Route::resource('books', 'BookController');
 Route::get('/login', 'Front@login');
 Route::get('/signup', 'Front@signup');
-Route::get('profile', 'Front@profile');
-// Route::get('search', 'BooksController@search');
-// Route::get('share', 'BookController@share');
-// Route::get('hire', 'BookController@hire');
+Route::get('/profile', 'Front@profile');
+Route::get('/help', 'Front@help');
+Route::get('/faq', 'Front@faq');
+Route::get('terms', 'Front@terms');
 

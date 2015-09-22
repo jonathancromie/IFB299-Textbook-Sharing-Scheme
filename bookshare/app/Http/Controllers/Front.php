@@ -75,6 +75,18 @@ class Front extends Controller
         return view('signup', array('page' => 'signup'));
     }
 
+    public function help() {
+        return view('help', array('page' => 'help'));
+    }
+
+    public function faq() {
+        return view('faq', array('page' => 'faq'));
+    }
+
+    public function terms() {
+        return view('terms', array('page' => 'terms'));
+    }
+
     // public function product_details($id) {
     //     return 'product details page';
     // }

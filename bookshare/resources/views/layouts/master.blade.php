@@ -28,14 +28,7 @@
                     <li><a href="search">Search</a></li>
                     <li><a href="profile">Profile</a></li>
                     <li><a href="login">Login</a></li>
-<<<<<<< HEAD
-                    <li><a href="Toturial.BLADE.PHP">Toturial</a></li>
-                    <li><a href="FAQ.BLADE.PHP">FAQ</a></li>
-                    <li><a href="TERMS.BLADE.PHP">Terms and conditions</a></li>
-                    <li><a href="#" class="button special">Sign Up</a></li>
-=======
                     <li><a href="signup" class="button special">Sign Up</a></li>
->>>>>>> jcromie
                 </ul>
             </nav>
         </header>
@@ -57,12 +50,11 @@
                 <div class="6u">
                     <div class="row collapse-at-2">
                         <div class="6u">
-                            <h3>Accumsan</h3>
+                            <h3>About</h3>
                             <ul class="alt">
-                                <li><a href="#">Nascetur nunc varius</a></li>
-                                <li><a href="#">Vis faucibus sed tempor</a></li>
-                                <li><a href="#">Massa amet lobortis vel</a></li>
-                                <li><a href="#">Nascetur nunc varius</a></li>
+                                <li><a href="help">Help</a></li>
+                                <li><a href="faq">FAQ</a></li>
+                                <li><a href="terms">Terms and Conditions</a></li>
                             </ul>
                         </div>
                         <div class="6u">

@@ -1,26 +1,10 @@
+@extends('layouts.master')
 
-<!DOCTYPE html>
-<html>
-<head>
-       <!-- initialising the style sheet-->
-	   <link rel="stylesheet" type="text/css" href="css/Main.css" media="all" />   
-</head>
-<body>
-<div class="gridcontainer">
-    <div class="gridwrapper">
-        <div class="gridbox gridheader">
-            <div class="header">
-		    <!-- Header -->
-			<?php include("Include/Header.html");?>
-            </div>
-        </div>
-        <div class="gridbox gridmenu">
-		    <!-- Navigation menu -->            
-			<?php include("Include/navigation.php");?> 
-        </div>
-        <div class="gridbox gridmain">
-            <div class="main">
-			<h1>Terms and conditions of use</h1>
+@section('title', 'FAQ')
+
+@section('content')
+    @parent
+	<h1>Terms and conditions of use</h1>
     
     <h2>1. Introduction</h2>
 <p>
@@ -74,18 +58,5 @@
 5.2	You may cancel your account on our website [using your account control panel on the website].
 </p>
 
-           
-            </div>
-        </div>
-        
-        <div class="gridbox gridfooter">
-            <div class="footer">
-            <!-- footer -->
-			<?php include("Include/footer.html");?>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
-</html>
+@endsection
 
