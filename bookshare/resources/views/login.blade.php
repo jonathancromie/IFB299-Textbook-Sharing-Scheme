@@ -13,6 +13,9 @@
 		<input type="submit" name="login" value="Login"/>
 		</fieldset>
     </form>
+<<<<<<< HEAD
 
     <p> Not registered yet? <a href="signup">Click here</a> </p>
+=======
+>>>>>>> jcromie
 @endsection

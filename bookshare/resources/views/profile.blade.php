@@ -5,7 +5,17 @@
 @section('content')
     @parent
     <h2>Profile</h2>
-	<table>
+
+    <h1> Sara</h1>
+	<ul>
+		<li><a href="link">Add book</a></li>
+  		<li><a href="link"> History</a></li>
+  		<li><a href="link">Feedback</a></li>
+	</ul>
+	<P> Here is the users review of you </p>
+
+
+	<!-- <table>
 	    <thead>
 	        <tr>
 	            <td>Book</td>
@@ -25,6 +35,6 @@
 	    </tr>
 	    @endforeach
         </tbody>
-	</table>
+	</table> -->
 
 @endsection

@@ -67,6 +67,14 @@ class Front extends Controller
         return View::make('profile')->with('contract', $contract);
     }
 
+    public function login() {
+        return view('login', array('page' => 'login'));
+    }
+
+    public function signup() {
+        return view('signup', array('page' => 'signup'));
+    }
+
     // public function product_details($id) {
     //     return 'product details page';
     // }

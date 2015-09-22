@@ -28,10 +28,14 @@
                     <li><a href="search">Search</a></li>
                     <li><a href="profile">Profile</a></li>
                     <li><a href="login">Login</a></li>
+<<<<<<< HEAD
                     <li><a href="Toturial.BLADE.PHP">Toturial</a></li>
                     <li><a href="FAQ.BLADE.PHP">FAQ</a></li>
                     <li><a href="TERMS.BLADE.PHP">Terms and conditions</a></li>
                     <li><a href="#" class="button special">Sign Up</a></li>
+=======
+                    <li><a href="signup" class="button special">Sign Up</a></li>
+>>>>>>> jcromie
                 </ul>
             </nav>
         </header>

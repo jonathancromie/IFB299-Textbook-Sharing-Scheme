@@ -21,6 +21,7 @@ use View;
 use Log;
 use BookShare\Photo;
 use Image;
+use URL;
 
 class BookController extends Controller
 {
@@ -110,11 +111,10 @@ class BookController extends Controller
                                  'isbn' => Input::get('isbn'),
                                  'publisher' => Input::get('publisher'), 
                                  'edition' => Input::get('edition'),
-                                 'faculty' => Input::get('faculty')
+                                 'faculty' => Input::get('faculty'),
                                  ]);
 
             $book->save();
-
 
             /* Add Error Checking */
             if (Input::file('image')->isValid()) {
@@ -122,23 +122,23 @@ class BookController extends Controller
                 $extension = $file->getClientOriginalExtension();
                 //Creating sha1 version of the filename in case of conflicts
                 // $sha1 = sha1($file->getClientOriginalName());  
-                $filename = $book->book_id . '.' . $extension;
+                $book_id = $book->primaryKey;
+                $filename = $book_id . '.' . $extension;
 
                 $path = public_path("uploads/" . $filename);
-                Session::flash('message', $path);
+                Session::flash('message', $book_id);
 
                 Image::make($file->getRealPath())->resize(100,150)->save($path);
 
-                $photo = new Photo;
-                $photo->photo = $filename;
-                $photo->save();
+                $book->image = URL::to('uploads/' . $book_id);
+                $book->save();
             }
 
             // needs fixing after registration is complete...student number to be stored in session after login
             $sharer_id = '09136690';
             $borrower_id = '09136691';
             $book_id = 24;
-            $due_date = '2015-10=30';
+            $due_date = '2015-10-30';
 
             // /* Create and store sharer, borrower in contract */  
             // /* DEVELOP LATER - Store borrowers after sharer_id and book_id exist - resdirect to user profile*/   
@@ -150,7 +150,7 @@ class BookController extends Controller
 
 
             // redirect
-            return Redirect::to('books');
+            return Redirect::to('profile');
             Session::flash('message', 'Successfully created book!');             
         }            
     }
