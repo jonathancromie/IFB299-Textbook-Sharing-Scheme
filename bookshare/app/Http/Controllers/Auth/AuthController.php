@@ -2,11 +2,12 @@
 
 namespace BookShare\Http\Controllers\Auth;
 
-use BookShare\User;
+use BookShare\Student;
 use Validator;
 use BookShare\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use View;
 
 class AuthController extends Controller
 {
@@ -22,6 +23,25 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+
+    private $redirectTo = '/';
+    private $maxLoginAttempts = 5;
+
+    protected function getLogin() {
+        return View::make('auth/login');
+    }
+
+    protected function postLogin() {
+        return View::make('auth/login');
+    }
+
+    protected function getRegister() {
+        return View::make('auth/register');
+    }
+
+    protected function postRegister() {
+        return View::make('auth/register');
+    }
 
     /**
      * Create a new authentication controller instance.
@@ -42,8 +62,16 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'sex' => 'required|max:6',
+            'dob' => 'required',
+            'phone' => 'required|max:10',
+            'street' => 'required|max:255',
+            'suburb' => 'required|max:255',
+            'post_code' => 'required|max:4',
+            'state' => 'required|max:3',
             'password' => 'required|confirmed|min:6',
         ]);
     }
@@ -57,8 +85,16 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
             'email' => $data['email'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'sex' => $data['sex'],
+            'dob' => $data['dob'],
+            'phone' => $data['phone'],
+            'street' => $data['street'],
+            'suburb' => $data['suburb'],
+            'post_code' => $data['post_code'],
+            'state' => $data['state'],
             'password' => bcrypt($data['password']),
         ]);
     }

@@ -31,7 +31,7 @@
 				<option value="Science and Mathematics">Science and Mathematics</option>
 			</select>	
 			<br>
-			<label for="fileToUpload">Upload image</label>
+			<label for="fileToUpload">Upload Photo</label>
 			<input type="file" name="image" id="image"><br>
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<input type="submit" value="Submit">

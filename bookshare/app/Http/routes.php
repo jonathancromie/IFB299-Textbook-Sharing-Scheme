@@ -19,10 +19,16 @@ Route::get('/borrow', 'Front@borrow');
 Route::get('/search', 'Front@search');
 Route::get('/results', 'Front@results');
 Route::resource('books', 'BookController');
-Route::get('/login', 'Front@login');
-Route::get('/signup', 'Front@signup');
 Route::get('/profile', 'Front@profile');
 Route::get('/help', 'Front@help');
 Route::get('/faq', 'Front@faq');
 Route::get('terms', 'Front@terms');
 
+// Authentication routes...
+Route::get('login', 'Auth\AuthController@getLogin');
+Route::post('login', 'Auth\AuthController@postLogin');
+Route::get('logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('register', 'Auth\AuthController@getRegister');
+Route::post('register', 'Auth\AuthController@postRegister');

@@ -67,14 +67,6 @@ class Front extends Controller
         return View::make('profile')->with('contract', $contract);
     }
 
-    public function login() {
-        return view('login', array('page' => 'login'));
-    }
-
-    public function signup() {
-        return view('signup', array('page' => 'signup'));
-    }
-
     public function help() {
         return view('help', array('page' => 'help'));
     }
@@ -87,18 +79,6 @@ class Front extends Controller
         return view('terms', array('page' => 'terms'));
     }
 
-    // public function product_details($id) {
-    //     return 'product details page';
-    // }
-
-    // public function product_categories() {
-    //     return 'product categories page';
-    // }
-
-    // public function product_brands() {
-    //     return 'product brands page';
-    // }
-
     // public function blog() {
     //     return 'blog page';
     // }
@@ -109,25 +89,5 @@ class Front extends Controller
 
     // public function contact_us() {
     //     return 'contact us page';
-    // }
-
-    // public function login() {
-    //     return 'login page';
-    // }
-
-    // public function logout() {
-    //     return 'logout page';
-    // }
-
-    // public function cart() {
-    //     return 'cart page';
-    // }
-
-    // public function checkout() {
-    //     return 'checkout page';
-    // }
-
-    // public function search($query) {
-    //     return "$query search page";
     // }
 }

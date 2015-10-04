@@ -15,8 +15,9 @@ class Student extends Model implements AuthenticatableContract,
                                     CanResetPasswordContract
 {
 	use Authenticatable, Authorizable, CanResetPassword;
-	
-    protected $fillable = array('first_name', 'last_name', 'sex', 'dob', 'phone', 'street', 'suburb', 'post_code', 'state', 'password');
+
+    protected $primaryKey = 'email';	
+    protected $fillable = array('email', 'first_name', 'last_name', 'sex', 'dob', 'phone', 'street', 'suburb', 'post_code', 'state', 'password');
 
     /**
      * The attributes excluded from the model's JSON form.
