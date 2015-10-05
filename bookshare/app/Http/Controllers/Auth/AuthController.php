@@ -1,5 +1,4 @@
 <?php
-
 namespace BookShare\Http\Controllers\Auth;
 
 use BookShare\Student;
@@ -8,6 +7,9 @@ use BookShare\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use View;
+use Illuminate\Http\Request;
+use Input;
+use Auth;
 
 class AuthController extends Controller
 {
@@ -21,26 +23,44 @@ class AuthController extends Controller
     | a simple trait to add these behaviors. Why don't you explore it?
     |
     */
-
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    private $redirectTo = '/';
-    private $maxLoginAttempts = 5;
+    protected $redirectPath = 'index';
+    protected $loginPath = 'login';
 
-    protected function getLogin() {
-        return View::make('auth/login');
+    public function postLogin(Request $request) {
+
+        //pass through validation rules
+        $this->validate($request, ['email' => 'required', 'password' => 'required']);
+
+        $credentials = [
+            'email' => trim($request->get('email')),
+            'password' => trim($request->get('password'))
+        ];
+
+        $remember = $request->has('remember');
+
+        //log in the user
+        if (Auth::attempt($credentials, $remember)) {
+            return redirect()->intended($this->redirectPath);
+        }
+
+        //show error if invalid data entered
+        return redirect()->back()->withErrors('Login/Pass do not match')->withInput();
     }
 
-    protected function postLogin() {
-        return View::make('auth/login');
-    }
+    public function postRegister(Request $request)
+    {
+        $validator = $this->validator($request->all());
 
-    protected function getRegister() {
-        return View::make('auth/register');
-    }
+        if ($validator->fails()) {
+            \Log::info('yes');
+            $this->throwValidationException($request, $validator);
+        }
 
-    protected function postRegister() {
-        return View::make('auth/register');
+        Auth::login($this->create($request->all()));
+
+        return redirect('index');
     }
 
     /**
@@ -48,11 +68,10 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest', ['except' => 'getLogout']);
-    }
-
+    // public function __construct()
+    // {
+    //     $this->middleware('guest', ['except' => 'getLogout']);
+    // }
     /**
      * Get a validator for an incoming registration request.
      *
@@ -62,7 +81,7 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'email' => 'required|email|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:students',
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
             'sex' => 'required|max:6',
@@ -75,7 +94,6 @@ class AuthController extends Controller
             'password' => 'required|confirmed|min:6',
         ]);
     }
-
     /**
      * Create a new user instance after a valid registration.
      *
@@ -84,7 +102,7 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        return Student::create([
             'email' => $data['email'],
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],

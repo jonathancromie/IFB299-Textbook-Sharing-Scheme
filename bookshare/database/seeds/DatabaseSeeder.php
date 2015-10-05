@@ -12,10 +12,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
-
-        // $this->call(UserTableSeeder::class);
-
-        Model::reguard();
+        DB::table('students')->insert([
+            'email' => 'joncromie@gmail.com',
+            'first_name' => 'Jon',
+            'last_name' => 'Cromie',
+            'sex' => 'Male',
+            'dob' => '1987-03-19',
+            'phone' => '0447193506',
+            'street' => '16 Bracken Ridge Rd',
+            'suburb' => 'Sandgate',
+            'post_code' => '4017',
+            'state' => 'QLD',
+            'password' => bcrypt('secret'),
+        ]);
     }
 }

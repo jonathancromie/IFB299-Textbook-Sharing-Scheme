@@ -7,6 +7,8 @@
 
     <h2>Register</h2>
 
+    <!-- resources/views/auth/register.blade.php -->
+
     <form method="POST" action="register">
         {!! csrf_field() !!}
 
@@ -35,4 +37,6 @@
         <input type="password" name="password_confirmation" placeholder="Confirm Password" required><br>
         <input type="submit" value="Register">
     </form>
+
+    <p>Already a member? <a href="login">Click here</a> </p>
 @endsection
