@@ -20,8 +20,7 @@
     <body>
         <!-- Header -->
         <header id="header" class="skel-layers-fixed">
-            <a href="index"><img src="images/logo.png" alt="logo" width="150" height="50px" align="left"></a>
-            <!-- <h1> &nbsp; &nbsp; &nbsp; <a href="index">BookShare</a></h1> -->
+            <a href="index"><img src="images/logo.png" alt="logo" width="140" height="45px" align="left"></a>
             <nav id="nav">
                 <ul>
                     <li><a href="index">Home</a></li>

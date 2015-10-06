@@ -15,7 +15,7 @@
 	<P> Here is the users review of you </p>
 
 
-	<!-- <table>
+	<table>
 	    <thead>
 	        <tr>
 	            <td>Book</td>
@@ -35,6 +35,6 @@
 	    </tr>
 	    @endforeach
         </tbody>
-	</table> -->
+	</table>
 
 @endsection

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Redirect;
 
 use BookShare\Book;
 use View;
-
+use Auth;
 use DB;
 
 class Front extends Controller

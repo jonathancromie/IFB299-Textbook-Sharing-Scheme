@@ -13,7 +13,7 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::create('students', function(Blueprint $table) {
-            $table->increments('email');
+            $table->string('email');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('sex');

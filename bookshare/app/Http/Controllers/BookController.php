@@ -8,7 +8,6 @@ use BookShare\Http\Requests;
 use BookShare\Http\Controllers\BookController;
 
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
 use BookShare\Book;
@@ -22,65 +21,11 @@ use Log;
 use BookShare\Photo;
 use Image;
 use URL;
+use Auth;
+use Input;
 
 class BookController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        // $books = Book::all();
-
-        // // load the view and pass the books
-        // return View::make('books.index')->with('books', $books);
-        // return view('index', array('page' => 'books.index'));
-        return View::make('index');
-    }
-
-    public function share() {
-        // return view('share', array('page' => 'books.share'));
-        return View::make('share');
-    }
-
-    public function borrow() {
-        return View::make('borrow');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function search() {
-        // return view('search', array('page' => 'search'));
-        return View::make('search');
-    }
-
-    public function results() {
-        // $books = Book::where('name', 'LIKE', Input::get('search'), 'AND', 'author', 'LIKE', Input::get('search'), 'AND', 'isbn', 'LIKE', Input::get('search'))->get();
-        // $books = Book::whereRaw('name like ', Input::get('search'), array(25))->get();
-
-        $search = Input::get('search');
-        $query = '%'.$search.'%';
-
-        // $books = Book::where('name', 'like', $query, 'or', 'author', 'like', $query, 'or', 'isbn', 'like', $query, 'or', 'faculty', 'like', $query)->get();
-        $books = Book::where('name', 'like', $query)
-                        ->orWhere('author', 'like', $query)
-                        ->orWhere('isbn', 'like', $query)
-                        ->orWhere('faculty', 'like', $query)->get();
-
-
-        // foreach ($books as $book) {
-        //     echo ($book->book_id . " " . $book->name);
-        //     echo ('<br>');
-        // }
-
-        return View::make('results')->with('books', $books);
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -96,6 +41,7 @@ class BookController extends Controller
                     'isbn' => 'required|numeric',
                     'publisher' => 'required',
                     'edition' => 'required|numeric',
+                    'due_date' => 'required'
                     );
         $validator = Validator::make(Input::all(), $rules);
 
@@ -104,104 +50,47 @@ class BookController extends Controller
             return Redirect::to('share')->withErrors($validator);
         } 
 
-        else {   
+        else {
             // store book
             $book = Book::firstOrCreate(['name' => Input::get('name'),
-                                 'author' => Input::get('author'),
-                                 'isbn' => Input::get('isbn'),
-                                 'publisher' => Input::get('publisher'), 
-                                 'edition' => Input::get('edition'),
-                                 'faculty' => Input::get('faculty'),
-                                 ]);
+                                        'author' => Input::get('author'),
+                                        'isbn' => Input::get('isbn'),
+                                        'publisher' => Input::get('publisher'), 
+                                        'edition' => Input::get('edition'),
+                                        'faculty' => Input::get('faculty'),
+                                        'due_date' => trim($request->get('due_date'))
+                                        ]);
 
             $book->save();
 
-            /* Add Error Checking */
-            if (Input::file('image')->isValid()) {
-                $file = Input::file('image');
-                $extension = $file->getClientOriginalExtension();
-                //Creating sha1 version of the filename in case of conflicts
-                // $sha1 = sha1($file->getClientOriginalName());  
-                $book_id = $book->primaryKey;
-                $filename = $book_id . '.' . $extension;
+            $user = Auth::user();
+            \Log::info($user->email);
+            $book_id = $book->book_id;
 
-                $path = public_path("uploads/" . $filename);
-                Session::flash('message', $book_id);
+            $due_date = $book->due_date;
 
-                Image::make($file->getRealPath())->resize(100,150)->save($path);
+            \Log::info($book->due_date);
 
-                $book->image = URL::to('uploads/' . $book_id);
-                $book->save();
-            }
-
-            // needs fixing after registration is complete...student number to be stored in session after login
-            $sharer_id = '09136690';
-            $borrower_id = '09136691';
-            $book_id = 24;
-            $due_date = '2015-10-30';
-
-            // /* Create and store sharer, borrower in contract */  
-            // /* DEVELOP LATER - Store borrowers after sharer_id and book_id exist - resdirect to user profile*/   
-            $contract = Contract::firstOrCreate(['sharer_id' => $sharer_id,
-                                                'borrower_id' => $borrower_id,
+            $contract = Contract::firstOrCreate(['sharer_email' => $user->email,
                                                 'book_id' => $book_id,
                                                 'due_date' => $due_date
-                                                ]);  
+                                                ]); 
+            $contract->save();
 
+            $image = Input::file('image');
+            $extension = $image->getClientOriginalExtension();
+            $book_id = $book->book_id;
+            // $filename  = $book_id . '.' . $extension;
+            $filename = $book_id;
+            $path = public_path('uploads/' . $filename);
+            Image::make($image->getRealPath())->resize(50, 67)->save($path);
+            // $book->image = 'uploads/'.$filename;
+            $book->image = $filename;
+            $book->save();
 
             // redirect
-            return Redirect::to('profile');
+            return Redirect::to('index');
             Session::flash('message', 'Successfully created book!');             
         }            
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        // get the book
-        // $book = Book::find($id);
-
-        // // show the view and pass the nerd to it
-        // return View::make('books.show')
-        //     ->with('book', $book);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  Request  $request
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

@@ -8,7 +8,7 @@
 	<table>
     <thead>
         <tr>
-            <td>ID</td>
+            <!-- <td>ID</td> -->
             <td>Name</td>
             <td>Author</td>
             <td>ISBN</td>
@@ -21,7 +21,7 @@
     <tbody>
     @foreach($books as $key => $value)
         <tr>
-            <td>{{ $value->book_id }}</td>
+            <!-- <td>{{ $value->book_id }}</td> -->
             <td>{{ $value->name }}</td>
             <td>{{ $value->author }}</td>
             <td>{{ $value->isbn }}</td>
