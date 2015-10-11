@@ -29,21 +29,24 @@
 					<div class="row">
 						<div class="4u">
 							<section class="special box">
-								<i class="fa fa-search fa-2x"></i>
+								<!-- <i class="fa fa-search fa-2x"></i> -->
+								<i class="material-icons md-96">search</i>
 								<a href="search"><h3>Find a Textbook</h3></a>
 								<p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
 							</section>
 						</div>
 						<div class="4u">
 							<section class="special box">
-								<i class="fa fa-share-alt fa-2x"></i>
+								<!-- <i class="fa fa-share-alt fa-2x"></i> -->
+								<i class="material-icons md-96">share</i>
 								<a href="share"><h3>Share a Textbook</h3></a>
 								<p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
 							</section>
 						</div>
 						<div class="4u">
 							<section class="special box">
-								<i class="fa fa-download fa-2x"></i>
+								<!-- <i class="fa fa-download fa-2x"></i> -->
+								<i class="material-icons md-96">get_app</i>
 								<a href="borrow"><h3>Borrow a Textbook</h3></a>
 								<p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
 							</section>

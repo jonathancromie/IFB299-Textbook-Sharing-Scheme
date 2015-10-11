@@ -5,7 +5,8 @@
 @section('content')
     @parent
     <div id="terms">
-    <h2>1. Introduction</h2>
+    <h2>Terms and Conditions</h2>
+    <h1>1. Introduction</h1>
 	<p>
 	1.1	These terms and conditions shall govern your use of our website.<br>
 	1.2	By using our website, you accept these terms and conditions in full; accordingly, if you disagree with these terms and conditions or any part of these terms and conditions, you must not use our website.<br>
@@ -13,7 +14,7 @@
 	1.4	You must be at least [18] years of age to use our website; and by using our website or agreeing to these terms and conditions, you warrant and represent to us that you are at least [18] years of age.<br>
 	</p>
 
-	<h2>2. Copyright notice</h2>
+	<h1>2. Copyright notice</h1>
 	<p>
 	2.1	Copyright (c) [5 year(s) of first publication].<br>
 	2.2	Subject to the express provisions of these terms and conditions:<br>
@@ -21,7 +22,7 @@
 	(b)	all the copyright and other intellectual property rights in our website and the material on our website are reserved.<br>
 	</p>
 
-	<h2>3. Licence to use website</h2>
+	<h1>3. Licence to use website</h1>
 	<p>
 	3.1	You may:<br>
 	(a)	view pages from our website in a web browser;<br>
@@ -33,7 +34,7 @@
 	3.4	Except as expressly permitted by these terms and conditions, you must not edit or otherwise modify any material on our website.<br>
 	3.5	We reserve the right to restrict access to areas of our website, or indeed our whole website, at our discretion; you must not circumvent or bypass, or attempt to circumvent or bypass, any access restriction measures on our website.
 	</p>
-	<h2>4. Acceptable use</h2>
+	<h1>4. Acceptable use</h1>
 	<p>
 	4.1	You must not:<br>
 	(a)	use our website in any way or take any action that causes, or may cause, damage to the website or impairment of the performance, availability or accessibility of the website;<br>
@@ -46,7 +47,7 @@
 	4.2	You must not use data collected from our website to contact individuals, companies or other persons or entities.<br>
 	4.3	You must ensure that all the information you supply to us through our website, or in relation to our website, is [true, accurate, current, complete and non-misleading.
 	</p>
-    <h2>5. Cancellation and suspension of account</h2>
+    <h1>5. Cancellation and suspension of account</h1>
     <p>
 	5.1	We may:<br>
 	(a)	suspend your account<br>

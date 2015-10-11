@@ -11,23 +11,62 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 
 use BookShare\Book;
-use BookShare\Sharer;
-use BookShare\Borrower;
-use BookShare\Contract;
 use BookShare\Student;
+use BookShare\Contract;
 use Session;
 use View;
 use Log;
-use BookShare\Photo;
 use Image;
 use URL;
 use Auth;
 use Input;
+use DB;
 
 class BookController extends Controller
 {
+
+    // public function getShow($id) {
+    //     // get the book
+    //     $book = Book::find($id);
+    //     // // show the view and pass the nerd to it
+    //     return view('show')
+    //         ->with('book', $book);
+    // }
+    // /**
+    //  * Show sharer details
+    //  *
+    //  * @param  int  $id
+    //  * @return Response
+    //  */
+    public function show($id)
+    {
+        $information = DB::table('students')
+                    ->select('students.*', 'books.*', 'contracts.*')
+                    ->join('books', 'students.student_id', '=', 'books.student_id')
+                    ->join('contracts', function($join) use($id) {
+                        $join->on('books.book_id', '=', 'contracts.book_id')
+                            ->where('books.book_id', '=', $id);
+                    })
+                    ->get();
+        return View::make('books.show')->with('information', $information);
+    }
+
     /**
-     * Store a newly created resource in storage.
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        // $books = Book::all();
+        // // load the view and pass the books
+        // return View::make('books.index')->with('books', $books);
+        // return view('index', array('page' => 'books.index'));
+        return View::make('index');
+    }
+
+    /**
+     * Store a newly created book in storage.
      *
      * @param  Request  $request
      * @return Response
@@ -58,33 +97,30 @@ class BookController extends Controller
                                         'publisher' => Input::get('publisher'), 
                                         'edition' => Input::get('edition'),
                                         'faculty' => Input::get('faculty'),
-                                        'due_date' => trim($request->get('due_date'))
                                         ]);
 
             $book->save();
 
             $user = Auth::user();
-            \Log::info($user->email);
-            $book_id = $book->book_id;
+            $book->student_id = $user->student_id;
+            $book->save();
 
-            $due_date = $book->due_date;
+            // USE THIS WHEN BORROW BUTTON CLICKED
+            // $contract = Book::find(1)->contracts()->where('book_id', '=', $book->book_id);
 
-            \Log::info($book->due_date);
-
-            $contract = Contract::firstOrCreate(['sharer_email' => $user->email,
-                                                'book_id' => $book_id,
-                                                'due_date' => $due_date
-                                                ]); 
+            $contract = new Contract;
+            $contract->sharer_id = $user->student_id;
+            $contract->book_id = $book->book_id;
+            $contract->due_date = Input::get('due_date');
             $contract->save();
 
             $image = Input::file('image');
             $extension = $image->getClientOriginalExtension();
             $book_id = $book->book_id;
-            // $filename  = $book_id . '.' . $extension;
-            $filename = $book_id;
+            $filename  = $book_id . '.' . $extension;
             $path = public_path('uploads/' . $filename);
             Image::make($image->getRealPath())->resize(50, 67)->save($path);
-            // $book->image = 'uploads/'.$filename;
+            $book->image = 'uploads/'.$filename;
             $book->image = $filename;
             $book->save();
 

@@ -6,21 +6,30 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
-        <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-        <script src="js/jquery.min.js"></script>
+        <!-- [if lte IE 8]><script src="js/html5shiv.js"></script><![endif] -->
+        <!-- <script src="js/jquery.min.js"></script>
         <script src="js/skel.min.js"></script>
         <script src="js/skel-layers.min.js"></script>
-        <script src="js/init.js"></script>
+        <script src="js/init.js"></script> -->
+        <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/skel.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/skel-layers.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/init.js') }}"></script>
+
         <!-- <noscript> -->
-            <link rel="stylesheet" href="css/skel.css" />
+            <!-- link rel="stylesheet" href="css/skel.css" />
             <link rel="stylesheet" href="css/style.css" />
-            <link rel="stylesheet" href="css/style-xlarge.css" />
+            <link rel="stylesheet" href="css/style-xlarge.css" /> -->
+            <link href="{{ asset('css/skel.css') }}" rel="stylesheet" type="text/css" >
+            <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" >
+            <link href="{{ asset('css/style-xlarge.css') }}" rel="stylesheet" type="text/css" >
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- </noscript> -->
     </head>
     <body>
         <!-- Header -->
         <header id="header" class="skel-layers-fixed">
-            <a href="index"><img src="images/logo.png" alt="logo" width="140" height="45px" align="left"></a>
+            <a href="index"><img src="{{ asset('images/logo.png') }}" alt="logo" width="140" height="45px" align="left"></a>
             <nav id="nav">
                 <ul>
                     <li><a href="index">Home</a></li>

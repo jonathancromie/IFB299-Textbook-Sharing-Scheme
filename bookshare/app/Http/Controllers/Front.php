@@ -16,15 +16,13 @@ use View;
 use Auth;
 use DB;
 
+use BookShare\Sharer;
+
 class Front extends Controller
 {
     public function index() {
         return view('index', array('page' => 'index'));
     }
-
-    /* 
-     * REMOVE ALL THESE ONCE IN BOOKCONTROLER
-     */
 
     public function share() {
         return view('share', array('page' => 'share'));
@@ -54,17 +52,6 @@ class Front extends Controller
                         ->orWhere('faculty', 'like', $query)->get();
 
         return View::make('results')->with('books', $books);
-    }
-
-    public function profile() {
-        $contract = DB::table('contracts')
-            ->join('students', 'contracts.sharer_id', '=', 'students.student_id')
-            ->join('books', 'contracts.book_id', '=', 'books.book_id')
-            ->select('students.first_name', 'students.last_name', 'books.name', 'contracts.due_date')
-            ->get();
-
-
-        return View::make('profile')->with('contract', $contract);
     }
 
     public function help() {

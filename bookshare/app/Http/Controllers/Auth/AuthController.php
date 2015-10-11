@@ -28,6 +28,18 @@ class AuthController extends Controller
     protected $redirectPath = 'index';
     protected $loginPath = 'login';
 
+    /**
+     * Create a new authentication controller instance.
+     *
+     * @return void
+     */
+    public function __construct(Student $student)
+    {
+        // $this->middleware('guest', ['except' => 'getLogout']);
+        $this->student = $student;
+
+    }
+
     public function postLogin(Request $request) {
 
         //pass through validation rules
@@ -54,7 +66,7 @@ class AuthController extends Controller
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
-            \Log::info('yes');
+            \Log::info('register failed');
             $this->throwValidationException($request, $validator);
         }
 
@@ -63,15 +75,6 @@ class AuthController extends Controller
         return redirect('index');
     }
 
-    /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
-    // public function __construct()
-    // {
-    //     $this->middleware('guest', ['except' => 'getLogout']);
-    // }
     /**
      * Get a validator for an incoming registration request.
      *

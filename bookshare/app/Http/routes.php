@@ -11,18 +11,15 @@
 |
 */
 
-
-/* Re-route these when changing to BookController */
 Route::get('/index', 'Front@index');
 Route::get('/share', 'Front@share');
 Route::get('/borrow', 'Front@borrow');
 Route::get('/search', 'Front@search');
 Route::get('/results', 'Front@results');
 Route::resource('books', 'BookController');
-Route::get('/profile', 'Front@profile');
 Route::get('/help', 'Front@help');
 Route::get('/faq', 'Front@faq');
-Route::get('terms', 'Front@terms');
+Route::get('/terms', 'Front@terms');
 
 // Authentication routes...
 Route::get('login', 'Auth\AuthController@getLogin');
@@ -32,3 +29,8 @@ Route::get('logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register', 'Auth\AuthController@postRegister');
+
+// User routes
+Route::get('/profile', 'UserController@showProfile');
+
+Route::get('borrow/{sharer_id}/{book_id}', 'ContractController@insertBorrower');

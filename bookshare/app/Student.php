@@ -17,7 +17,7 @@ class Student extends Model implements AuthenticatableContract,
 {
     use Authenticatable, Authorizable, CanResetPassword;
 
-    protected $primaryKey = 'email';
+    protected $primaryKey = 'student_id';
     /**
      * The database table used by the model.
      *
@@ -36,4 +36,12 @@ class Student extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function book() {
+        return $this->hasMany('BookShare\Book');
+    }
+
+    public function contract() {
+        return $this->hasMany('BookShare\Contract');
+    }
 }
