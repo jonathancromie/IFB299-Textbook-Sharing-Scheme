@@ -3,16 +3,17 @@ namespace BookShare\Http\Controllers\Auth;
 
 use BookShare\Student;
 use Validator;
-// use BookShare\Http\Controllers\Controller;
+use BookShare\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use View;
 use Input;
 use Auth;
+use Illuminate\Http\Request;
 
 use Socialite;
-use Illuminate\Routing\Controller;
-use Request;
+use Illuminate\Routing\Controller as SocialController;
+use Request as SocialRequest; 
 
 class AuthController extends Controller
 {
@@ -91,9 +92,10 @@ class AuthController extends Controller
 
         //log in the user
         if (Auth::attempt($credentials, $remember)) {
-            return redirect()->intended($this->redirectPath);
+            \Session::flash('message', 'Welcome '.$request->get('email'));
+            // return redirect()->intended($this->redirectPath);
+            return view('index');
         }
-
         //show error if invalid data entered
         return redirect()->back()->withErrors('Login/Pass do not match')->withInput();
     }

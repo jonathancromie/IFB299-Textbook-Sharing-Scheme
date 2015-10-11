@@ -32,11 +32,11 @@
             <a href="index"><img src="{{ asset('images/logo.png') }}" alt="logo" width="140" height="45px" align="left"></a>
             <nav id="nav">
                 <ul>
-                    <li><a href="index">Home</a></li>
-                    <li><a href="search">Search</a></li>
-                    <li><a href="profile">Profile</a></li>
-                    <li><a href="login">Login</a></li>
-                    <li><a href="register" class="button special">Sign Up</a></li>
+                    <li><a href="{{ asset('index') }}">Home</a></li>
+                    <li><a href="{{ asset('search') }}">Search</a></li>
+                    <li><a href="{{ asset('user/profile') }}">Profile</a></li>
+                    <li><a href="{{ asset('login') }}">Login</a></li>
+                    <li><a href="{{ asset('register') }}" class="button special">Sign Up</a></li>
                 </ul>
             </nav>
         </header>
