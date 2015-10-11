@@ -3,13 +3,16 @@ namespace BookShare\Http\Controllers\Auth;
 
 use BookShare\Student;
 use Validator;
-use BookShare\Http\Controllers\Controller;
+// use BookShare\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use View;
-use Illuminate\Http\Request;
 use Input;
 use Auth;
+
+use Socialite;
+use Illuminate\Routing\Controller;
+use Request;
 
 class AuthController extends Controller
 {
@@ -37,6 +40,40 @@ class AuthController extends Controller
     {
         // $this->middleware('guest', ['except' => 'getLogout']);
         $this->student = $student;
+    }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return Response
+     */
+    public function redirectToProvider()
+    {
+        \Log::info('yes');
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return Response
+     */
+    public function handleProviderCallback()
+    {
+        \Log::info('yes');
+        $user = Socialite::driver('facebook')->user();
+
+        $token = $user->token;
+
+        $id = $user->getId();
+        $name = $user->getName();
+        $email = $user->getEmail();
+        $avatar = $user->getAvatar();
+
+        \Session::flash('message', 'Welcome '.$name);
+
+        return view('index');
+
 
     }
 

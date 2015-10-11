@@ -11,6 +11,7 @@
 |
 */
 
+Route::get('/', 'Front@index');
 Route::get('/index', 'Front@index');
 Route::get('/share', 'Front@share');
 Route::get('/borrow', 'Front@borrow');
@@ -25,6 +26,20 @@ Route::get('/terms', 'Front@terms');
 Route::get('login', 'Auth\AuthController@getLogin');
 Route::post('login', 'Auth\AuthController@postLogin');
 Route::get('logout', 'Auth\AuthController@getLogout');
+
+// Social login
+Route::get('login/facebook', 'Auth\AuthController@redirectToProvider');
+Route::get('/login/facebook/callback', 'Auth\AuthController@handleProviderCallback');
+
+// Route::get('/login/{provider?}',[
+//     'uses' => 'Auth\AuthController@getSocialAuth',
+//     'as'   => 'auth.getSocialAuth'
+// ]);
+
+// Route::get('/login/callback/{provider?}',[
+//     'uses' => 'Auth\AuthController@getSocialAuthCallback',
+//     'as'   => 'auth.getSocialAuthCallback'
+// ]);
 
 // Registration routes...
 Route::get('register', 'Auth\AuthController@getRegister');
