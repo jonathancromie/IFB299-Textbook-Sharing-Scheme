@@ -11,7 +11,7 @@
     <section id="banner">
         <div class="inner">
             <h2>This is ShareBook</h2>
-		    <p>A free way to share textbooks for students at <a href="http://www.qut.edu.au">QUT</a></p>
+		    <p>Share your textbooks with other students at <a href="http://www.qut.edu.au">QUT</a></p>
 		    <ul class="actions">
 		        <li><a href="#content" class="button big special">Sign Up</a></li>
 		        <li><a href="#elements" class="button big alt">Learn More</a></li>
@@ -22,8 +22,8 @@
     <!-- One -->
 			<section id="one" class="wrapper style1">
 				<header class="major">
-					<h2>Ipsum feugiat consequat</h2>
-					<p>Tempus adipiscing commodo ut aliquam blandit</p>
+					<h2></h2>
+					<p>Choose an option</p>
 				</header>
 				<div class="container">
 					<div class="row">

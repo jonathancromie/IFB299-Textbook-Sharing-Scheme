@@ -48,4 +48,4 @@ Route::post('register', 'Auth\AuthController@postRegister');
 // User routes
 Route::get('/profile', 'UserController@showProfile');
 
-Route::get('borrow/{sharer_id}/{book_id}', 'ContractController@insertBorrower');
+Route::get('borrow/{id}', 'ContractController@insertBorrower');

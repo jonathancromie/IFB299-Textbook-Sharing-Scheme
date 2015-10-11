@@ -135,7 +135,8 @@ return [
     |
     */
 
-    'domain' => 'localhost/ifb299/bookshare/public',
+    // 'domain' => 'localhost/ifb299/bookshare/public',
+    'domain' => null,
 
     /*
     |--------------------------------------------------------------------------

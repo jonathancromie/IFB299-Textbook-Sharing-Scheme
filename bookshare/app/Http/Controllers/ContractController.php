@@ -11,15 +11,17 @@ use BookShare\Contract;
 
 class ContractController extends Controller
 {
-    public function insertBorrower($sharer_id, $book_id) {
+    public function insertBorrower($id) {
         $borrower_id = Auth::user()->student_id;        
-        $contract = Contract::where('sharer_id', '=', $sharer_id, 'and', 'book_id', '=', $book_id);
+        // $contract = Contract::where('sharer_id', '=', $sharer_id, 'and', 'book_id', '=', $book_id)->first();
+        $contract = Contract::where('contract_id', $id)->first();
         $contract->borrower_id = $borrower_id;
         $contract->save();
 
-        Session::flash('message', 'Successfully borrowed book!');  
+        \Session::flash('message', 'Successfully borrowed book!');  
 
-        return view('user.profile', ['user' => Student::findOrFail($id)]);
+        // return view('index', ['user' => Student::findOrFail($id)]);
+        return view('index');
 
     }
     // /**

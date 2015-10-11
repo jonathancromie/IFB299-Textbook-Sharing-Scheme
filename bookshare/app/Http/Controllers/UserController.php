@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use BookShare\Http\Requests;
 use BookShare\Http\Controllers\Controller;
 use BookShare\Student;
+use BookShare\Contract;
+use View;
 
 class UserController extends Controller
 {
@@ -17,7 +19,19 @@ class UserController extends Controller
      */
     public function showProfile()
     {
-        return view('user.profile');
+        $student_id = \Auth::user()->student_id;
+        $contract = \DB::table('students')
+                    ->select('students.*', 'books.*', 'contracts.*')
+                    ->join('books', 'students.student_id', '=', 'books.student_id')
+                    ->join('contracts', function($join) use($student_id) {
+                        $join->on('books.book_id', '=', 'contracts.book_id')
+                            ->where('contracts.borrower_id', '=', $student_id);
+                    })
+                    ->get();
+
+        \Log::info([$contract]);
+
+        return View::make('user.profile')->with('contract', $contract);
     }
     // /**
     //  * Display a listing of the resource.

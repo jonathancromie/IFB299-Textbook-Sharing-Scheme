@@ -50,7 +50,6 @@ class AuthController extends Controller
      */
     public function redirectToProvider()
     {
-        \Log::info('yes');
         return Socialite::driver('facebook')->redirect();
     }
 

@@ -34,9 +34,17 @@
                 <ul>
                     <li><a href="{{ asset('index') }}">Home</a></li>
                     <li><a href="{{ asset('search') }}">Search</a></li>
-                    <li><a href="{{ asset('user/profile') }}">Profile</a></li>
-                    <li><a href="{{ asset('login') }}">Login</a></li>
-                    <li><a href="{{ asset('register') }}" class="button special">Sign Up</a></li>
+                    <li><a href="{{ asset('profile') }}">Profile</a></li>
+                    <!-- <li><a href="{{ asset('login') }}">Login</a></li> -->
+                    @if(Auth::check())
+                        <li><a href="{{ asset('logout') }}">Logout</a></li>
+                    @else
+                        <li><a href="{{ asset('login') }}">Login</a></li>
+                    @endif
+                    <!-- <li><a href="{{ asset('register') }}" class="button special">Sign Up</a></li> -->
+                    @unless(Auth::check())
+                        <li><a href="{{ asset('register') }}" class="button special">Sign Up</a></li>
+                    @endunless
                 </ul>
             </nav>
         </header>
