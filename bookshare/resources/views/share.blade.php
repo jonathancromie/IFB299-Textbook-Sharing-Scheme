@@ -38,7 +38,8 @@
 			<input type="date" name="due_date" placeholder="Due Date" required><br>
 			<input type="text" name="location" placeholder="Pickup Location" required><br>
 			<label for="fileToUpload">Upload Photo</label>
-			<input type="file" name="image" id="image" required><br>
+			<input type="file" name="image" id="image" accept="image/gif, image/jpeg, image/png" required><br>
+			<input type="hidden" name="MAX_FILE_SIZE" value="20971520">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<input type="submit" value="Submit">
 		</form>
