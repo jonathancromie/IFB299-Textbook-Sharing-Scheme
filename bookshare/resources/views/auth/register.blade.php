@@ -7,8 +7,8 @@
 
     <h2>Register</h2>
 <!--Validate email and password stregnth  -->
-include 'password-stregnth.js';
-include 'Qutemails.js';
+@include ('Qutemails.js')
+@include ('password-stregnth.js')
 
     <!-- resources/views/auth/register.blade.php -->
 
