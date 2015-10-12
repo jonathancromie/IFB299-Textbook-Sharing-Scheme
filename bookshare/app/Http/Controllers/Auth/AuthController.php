@@ -110,6 +110,7 @@ class AuthController extends Controller
 
         Auth::login($this->create($request->all()));
 
+        \Session::flash('message', 'You have successfully registered.');
         return redirect('index');
     }
 

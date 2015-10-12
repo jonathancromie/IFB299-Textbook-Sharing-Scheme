@@ -1,19 +1,17 @@
 @extends('layouts.master')
 
+<!--Validate email and password stregnth  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="{{ asset('js/Qutemails.js') }}"></script>
+<script src="{{ asset('js/password-stregnth.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="css/pass.css" media="all" />  
+
 @section('title', 'Sign Up')
 
 @section('content')
     @parent
 
     <h2>Register</h2>
-<!--Validate email and password stregnth  -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/pass.css" media="all" />   
-@include ('Qutemails.js')
-@include ('password-stregnth.js')
-
-
-    <!-- resources/views/auth/register.blade.php -->
 
     <form method="POST" action="register"onSubmit="return checkbae()">
         {!! csrf_field() !!}
@@ -39,7 +37,7 @@
             <option value="VIC">VIC</option>
             <option value="WA">WA</option>
         </select><br>
-        <input type="password" name="password" id="pass" placeholder="Password" required><br>
+        <input type="password" name="pass" id="pass" placeholder="Password" required><br>
 		<span id="passstrength"></span>
         <input type="password" name="password_confirmation" placeholder="Confirm Password" required><br>
         <input type="submit" value="Register">
