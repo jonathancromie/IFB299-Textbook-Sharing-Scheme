@@ -7,24 +7,25 @@
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <!-- [if lte IE 8]><script src="js/html5shiv.js"></script><![endif] -->
-        <!-- <script src="js/jquery.min.js"></script>
-        <script src="js/skel.min.js"></script>
-        <script src="js/skel-layers.min.js"></script>
-        <script src="js/init.js"></script> -->
-        <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/skel.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/skel-layers.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/init.js') }}"></script>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/skel.min.js') }}"></script>
+        <script src="{{ asset('js/skel-layers.min.js') }}"></script>
+        <script src="{{ asset('js/init.js') }}"></script>
+        
+        <!-- // <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script> -->
+        <!-- // <script type="text/javascript" src="{{ asset('js/skel.min.js') }}"></script> -->
+        <!-- // <script type="text/javascript" src="{{ asset('js/skel-layers.min.js') }}"></script> -->
+        <!-- // <script type="text/javascript" src="{{ asset('js/init.js') }}"></script> -->
 
-        <!-- <noscript> -->
-            <!-- link rel="stylesheet" href="css/skel.css" />
-            <link rel="stylesheet" href="css/style.css" />
-            <link rel="stylesheet" href="css/style-xlarge.css" /> -->
-            <link href="{{ asset('css/skel.css') }}" rel="stylesheet" type="text/css" >
-            <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" >
-            <link href="{{ asset('css/style-xlarge.css') }}" rel="stylesheet" type="text/css" >
-            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- </noscript> -->
+        <noscript>
+            <link rel="stylesheet" href="{{ asset('css/skel.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/style-xlarge.css') }}" />
+            <!-- <link href="{{ asset('css/skel.css') }}" rel="stylesheet" type="text/css" > -->
+            <!-- <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" > -->
+            <!-- <link href="{{ asset('css/style-xlarge.css') }}" rel="stylesheet" type="text/css" > -->
+        </noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
     </head>
     <body>
         <!-- Header -->
@@ -34,7 +35,9 @@
                 <ul>
                     <li><a href="{{ asset('index') }}">Home</a></li>
                     <li><a href="{{ asset('search') }}">Search</a></li>
-                    <li><a href="{{ asset('profile') }}">Profile</a></li>
+                    @unless(!Auth::check())
+                        <li><a href="{{ asset('profile') }}">Profile</a></li>
+                    @endunless
                     <!-- <li><a href="{{ asset('login') }}">Login</a></li> -->
                     @if(Auth::check())
                         <li><a href="{{ asset('logout') }}">Logout</a></li>

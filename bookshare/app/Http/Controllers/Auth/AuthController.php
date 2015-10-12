@@ -60,7 +60,6 @@ class AuthController extends Controller
      */
     public function handleProviderCallback()
     {
-        \Log::info('yes');
         $user = Socialite::driver('facebook')->user();
 
         $token = $user->token;
@@ -97,6 +96,7 @@ class AuthController extends Controller
         }
         //show error if invalid data entered
         return redirect()->back()->withErrors('Login/Pass do not match')->withInput();
+
     }
 
     public function postRegister(Request $request)

@@ -1099,6 +1099,7 @@
 		#footer .icons a {
 			color: #bbb;
 		}
+		
 #terms p{
 	text-align: left;
 	font-size: 1.1em;
@@ -1114,8 +1115,3 @@
 // Rules for using icons as black on a light background.
 .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
 .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
-
-/*#faq p{
-	text-align: left;
-	font-size: 1.1em;
-}*/

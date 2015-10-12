@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Redirect;
 use BookShare\Book;
 use BookShare\Student;
 use BookShare\Contract;
-use Session;
 use View;
 use Log;
 use Image;
@@ -124,9 +123,9 @@ class BookController extends Controller
             $book->image = $filename;
             $book->save();
 
+            \Session::flash('message', 'Successfully created book!');  
             // redirect
-            return Redirect::to('index');
-            Session::flash('message', 'Successfully created book!');             
+            return Redirect::to('index');                       
         }            
     }
 }

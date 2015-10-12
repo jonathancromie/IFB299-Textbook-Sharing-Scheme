@@ -13,8 +13,8 @@
             <h2>This is ShareBook</h2>
 		    <p>Share your textbooks with other students at <a href="http://www.qut.edu.au">QUT</a></p>
 		    <ul class="actions">
-		        <li><a href="#content" class="button big special">Sign Up</a></li>
-		        <li><a href="#elements" class="button big alt">Learn More</a></li>
+		        <li><a href="register" class="button big special">Sign Up</a></li>
+		        <li><a href="about" class="button big alt">Learn More</a></li>
 		    </ul>
         </div>
     </section>

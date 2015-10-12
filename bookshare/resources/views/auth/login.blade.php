@@ -11,6 +11,14 @@ include 'Qutemails.js';
 
     <h2>Login</h2>
 
+    @if (count($errors) > 0)
+    <div class="alert alert-danger">
+        @foreach ($errors->all() as $error)
+            <p>{{ $error }}</p>
+        @endforeach
+    </div>
+    @endif
+
     <form method="POST" action="login">
         {!! csrf_field() !!}
 
