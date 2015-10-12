@@ -14,7 +14,7 @@
 
     <!-- resources/views/auth/register.blade.php -->
 
-    <form method="POST" action="register">
+    <form method="POST" action="register"onSubmit="return checkbae()">
         {!! csrf_field() !!}
 
         <input type="text" name="email" value="{{ old('email') }}" placeholder="Email" required><br>
@@ -38,7 +38,8 @@
             <option value="VIC">VIC</option>
             <option value="WA">WA</option>
         </select><br>
-        <input type="password" name="password" placeholder="Password" required><br>
+        <input type="password" name="password" id="pass" placeholder="Password" required><br>
+		<span id="passstrength"></span>
         <input type="password" name="password_confirmation" placeholder="Confirm Password" required><br>
         <input type="submit" value="Register">
     </form>
