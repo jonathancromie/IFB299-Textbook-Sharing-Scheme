@@ -8,6 +8,7 @@
     <h2>Register</h2>
 <!--Validate email and password stregnth  -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/pass.css" media="all" />   
 @include ('Qutemails.js')
 @include ('password-stregnth.js')
 
