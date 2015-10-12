@@ -6,6 +6,9 @@
     @parent
 
     <h2>Register</h2>
+<!--Validate email and password stregnth  -->
+include 'password-stregnth.js';
+include 'Qutemails.js';
 
     <!-- resources/views/auth/register.blade.php -->
 
