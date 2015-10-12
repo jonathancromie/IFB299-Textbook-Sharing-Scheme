@@ -137,7 +137,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         'Illuminate\Html\HtmlServiceProvider', 
-        'Intervention\Image\ImageServiceProvider',
+        Intervention\Image\ImageServiceProvider::class,
 
         // Other service providers...
 

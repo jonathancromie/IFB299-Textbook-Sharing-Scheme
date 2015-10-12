@@ -118,7 +118,7 @@ class BookController extends Controller
             $book_id = $book->book_id;
             $filename  = $book_id . '.' . $extension;
             $path = public_path('uploads/' . $filename);
-            Image::make($image->getRealPath())->resize(50, 67)->save($path);
+            \Image::make($image->getRealPath())->resize(50, 67)->save($path);
             $book->image = 'uploads/'.$filename;
             $book->image = $filename;
             $book->save();
