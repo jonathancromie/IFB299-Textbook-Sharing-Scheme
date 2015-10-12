@@ -9,7 +9,7 @@ If not this will return error msg explaining that users should be qut students
 //QUT Email Check
 var testresults
 function checkemail(){
-var str=document.validation.emailcheck.value
+var str=document.validation.email.value
 var filter=/^([\w-]+(?:\.[\w-]+)*)@connect.qut.edu.au/i
 if (filter.test(str))
 testresults=true
