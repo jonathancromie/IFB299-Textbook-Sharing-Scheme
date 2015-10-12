@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+<script type="text/javascript" src="http://isbnjs.googlecode.com/svn/trunk/isbn.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="{{ asset('js/hyphenate.js') }}"></script>
+
 @section('title', 'Share Textbook')
 
 @section('content')
@@ -14,7 +18,8 @@
 		<form method="POST" action="books" accept-charset="UTF-8" enctype="multipart/form-data">
 			<input type="text" name="name" placeholder="Name" required><br>
 			<input type="text" name="author" placeholder="Author" required><br>
-			<input type="text" name="isbn" placeholder="ISBN" required><br>	
+			<span id="isbnspan"></span><br>
+			<input type="text" id="isbn" name="isbn" placeholder="ISBN" required><br>	
 			<input type="text" name="publisher" placeholder="Publisher" required><br>
 			<input type="text" name="edition" placeholder="Edition" required><br>
 			<select name="faculty" required>

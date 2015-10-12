@@ -1105,6 +1105,17 @@
 	font-size: 1.1em;
 }
 
+#passstrength {
+	color:red;
+	/*font-family: verdana;
+	font-size: 10px;
+	font-weight: bold;*/
+}
+
+#isbnspan {
+	color:red;
+}
+
 // Rules for sizing the icon.
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
