@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://60.240.144.91//ifb200/bookshare/public/',
+    'url' => 'http://localhost/ifb299/bookshare/public/',
 
     /*
     |--------------------------------------------------------------------------
