@@ -33,8 +33,11 @@
             <nav id="nav">
                 <ul>
                     <li><a href="{{ asset('index') }}">Home</a></li>
-                    <li><a href="{{ asset('search') }}">Search</a></li>
+                    
                     @unless(!Auth::check())
+                        <li><a href="{{ asset('search') }}">Find</a></li>
+                        <li><a href="{{ asset('share') }}">Share</a></li>
+                        <li><a href="{{ asset('borrow') }}">Borrow</a></li>
                         <li><a href="{{ asset('profile') }}">Profile</a></li>
                     @endunless
                     <!-- <li><a href="{{ asset('login') }}">Login</a></li> -->

@@ -46,7 +46,7 @@ Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register', 'Auth\AuthController@postRegister');
 
 // User routes
-Route::get('user/profile', 'UserController@showProfile');
+Route::get('profile', 'UserController@showProfile');
 
 Route::get('borrow/{id}', 'ContractController@insertBorrower');
 // Route::get('borrow/{id}', function($id) {
