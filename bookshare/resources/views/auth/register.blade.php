@@ -10,6 +10,7 @@
 @include ('Qutemails.js')
 @include ('password-stregnth.js')
 
+
     <!-- resources/views/auth/register.blade.php -->
 
     <form method="POST" action="register">
