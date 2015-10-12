@@ -76,7 +76,7 @@ class BookController extends Controller
         // read more on validation at http://laravel.com/docs/validation
         $rules = array('name' => 'required', 
                     'author' => 'required',
-                    'isbn' => 'required|numeric',
+                    'isbn' => 'required',
                     'publisher' => 'required',
                     'edition' => 'required|numeric',
                     'due_date' => 'required'
@@ -101,7 +101,7 @@ class BookController extends Controller
             $book->save();
 
             $user = Auth::user();
-            $book->student_id = $user->student_id;
+            $book->student_id = $user->student_id;  
             $book->save();
 
             // USE THIS WHEN BORROW BUTTON CLICKED

@@ -16,14 +16,10 @@
         <!-- // <script type="text/javascript" src="{{ asset('js/skel.min.js') }}"></script> -->
         <!-- // <script type="text/javascript" src="{{ asset('js/skel-layers.min.js') }}"></script> -->
         <!-- // <script type="text/javascript" src="{{ asset('js/init.js') }}"></script> -->
-
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" />
         <noscript>
-            <link rel="stylesheet" href="{{ asset('css/skel.css') }}" />
-            <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
-            <link rel="stylesheet" href="{{ asset('css/style-xlarge.css') }}" />
-            <!-- <link href="{{ asset('css/skel.css') }}" rel="stylesheet" type="text/css" > -->
-            <!-- <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" > -->
-            <!-- <link href="{{ asset('css/style-xlarge.css') }}" rel="stylesheet" type="text/css" > -->
+            <link rel="stylesheet" href="{{ asset('css/skel.css') }}" type="text/css" />            
+            <link rel="stylesheet" href="{{ asset('css/style-xlarge.css') }}" type="text/css" />
         </noscript>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
     </head>
