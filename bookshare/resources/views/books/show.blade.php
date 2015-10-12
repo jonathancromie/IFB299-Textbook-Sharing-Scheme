@@ -28,9 +28,6 @@
 		            <td>{{ $value->edition }}</td>
 		            <td>{{ $value->faculty }}</td>
 		            <td><img src="{{ URL::to('uploads/' . $value->image) }}" alt="{{ $value->book_id }}"/></td>
-		            <!-- <td>
-		                <a class="btn btn-small btn-success" href="{{ URL::to('borrow/'. $value->student_id . '/' . $value->book_id) }}">Borrow</a>
-		            </td> -->
 		        </tr>
 	        @endforeach
 	    </tbody>	    

@@ -3,6 +3,7 @@
     <head>
         <title>@yield('title')</title>
         @yield('scripts')
+        <base href="http://localhost/ifb299/bookshare/public/">
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -16,17 +17,19 @@
         <!-- // <script type="text/javascript" src="{{ asset('js/skel.min.js') }}"></script> -->
         <!-- // <script type="text/javascript" src="{{ asset('js/skel-layers.min.js') }}"></script> -->
         <!-- // <script type="text/javascript" src="{{ asset('js/init.js') }}"></script> -->
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" />
+        
         <noscript>
-            <link rel="stylesheet" href="{{ asset('css/skel.css') }}" type="text/css" />            
-            <link rel="stylesheet" href="{{ asset('css/style-xlarge.css') }}" type="text/css" />
+            <link rel="stylesheet" href="{{ URL::asset('assets/css/style.css') }}" type="text/css" />
+            <link rel="stylesheet" href="{{ URL::asset('css/skel.css') }}" type="text/css" />            
+            <link rel="stylesheet" href="{{ URL::asset('css/style-xlarge.css') }}" type="text/css" />
         </noscript>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+        
     </head>
     <body>
         <!-- Header -->
         <header id="header" class="skel-layers-fixed">
-            <a href="index"><img src="{{ asset('images/logo.png') }}" alt="logo" width="140" height="45px" align="left"></a>
+            <a href="index"><img src="{{ URL::asset('images/logo.png') }}" alt="logo" width="140" height="45px" align="left"></a>
             <nav id="nav">
                 <ul>
                     <li><a href="{{ asset('index') }}">Home</a></li>

@@ -29,9 +29,7 @@ class UserController extends Controller
                     })
                     ->get();
 
-        \Log::info([$contract]);
-
-        return View::make('user.profile')->with('contract', $contract);
+        return View::make('users.profile')->with('contract', $contract);
     }
     // /**
     //  * Display a listing of the resource.

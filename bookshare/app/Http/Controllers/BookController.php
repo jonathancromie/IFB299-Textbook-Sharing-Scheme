@@ -23,16 +23,8 @@ use DB;
 
 class BookController extends Controller
 {
-
-    // public function getShow($id) {
-    //     // get the book
-    //     $book = Book::find($id);
-    //     // // show the view and pass the nerd to it
-    //     return view('show')
-    //         ->with('book', $book);
-    // }
     // /**
-    //  * Show sharer details
+    //  * Show book details
     //  *
     //  * @param  int  $id
     //  * @return Response

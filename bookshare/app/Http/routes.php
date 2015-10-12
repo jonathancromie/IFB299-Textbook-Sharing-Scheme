@@ -46,6 +46,13 @@ Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register', 'Auth\AuthController@postRegister');
 
 // User routes
-Route::get('/profile', 'UserController@showProfile');
+Route::get('user/profile', 'UserController@showProfile');
 
 Route::get('borrow/{id}', 'ContractController@insertBorrower');
+// Route::get('borrow/{id}', function($id) {
+// 	return View::make('borrow')->with('id', $id);
+// });
+Route::get('book/books', 'BookController@show');
+// Route::get('books/{id}', function($id) {
+// 	return View::make('books')->with('id', $id);
+// });

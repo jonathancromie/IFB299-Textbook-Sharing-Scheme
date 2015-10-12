@@ -19,8 +19,6 @@ class ContractController extends Controller
         $contract->save();
 
         \Session::flash('message', 'Successfully borrowed book!');  
-
-        // return view('index', ['user' => Student::findOrFail($id)]);
         return view('index');
 
     }

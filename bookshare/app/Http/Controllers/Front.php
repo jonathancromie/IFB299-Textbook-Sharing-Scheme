@@ -30,7 +30,7 @@ class Front extends Controller
 
     public function borrow() {
         $books = Book::all();
-        return view('borrow', compact('books'));
+        return View::make('borrow')->with('books', $books);
     }
 
     public function search() {

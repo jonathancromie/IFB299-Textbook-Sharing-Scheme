@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => 'http://localhost/ifb200/bookshare/public/',
 
     /*
     |--------------------------------------------------------------------------
@@ -138,6 +138,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         'Illuminate\Html\HtmlServiceProvider', 
         Intervention\Image\ImageServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
         // Other service providers...
 
@@ -203,6 +204,8 @@ return [
         'Html'      => 'Illuminate\Html\HtmlFacade',
         'Image'     => 'Intervention\Image\Facades\Image',
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 
