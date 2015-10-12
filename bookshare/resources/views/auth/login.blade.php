@@ -1,6 +1,4 @@
-// Validate email and password stregnth 
-include 'password-stregnth.js';
-include 'Qutemails.js';
+
 
 @extends('layouts.master')
 
