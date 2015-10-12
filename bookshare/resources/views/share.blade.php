@@ -1,14 +1,13 @@
 @extends('layouts.master')
 
 @section('title', 'Share Textbook')
-<!-- <script src="js/hyphenate.js"></script> -->
 
 @section('content')
 	@parent
 
 	<div class='share-form'>
 		<h2>Share Textbook</h2>
-		<?php echo $errors->first('isbn');?><br>
+		<?php echo $errors->first('isbn');?>
 		<?php echo $errors->first('edition');?>
 		<p>{{Session::get('bookError')}}</p>
 		<p>{{Session::get('sharerError')}}</p>
@@ -31,8 +30,10 @@
 				<option value="Science and Mathematics">Science and Mathematics</option>
 			</select>	
 			<br>
-			<label for="fileToUpload">Upload image</label>
-			<input type="file" name="image" id="image"><br>
+			<input type="date" name="due_date" placeholder="Due Date" required><br>
+			<input type="text" name="location" placeholder="Pickup Location" required><br>
+			<label for="fileToUpload">Upload Photo</label>
+			<input type="file" name="image" id="image" required><br>
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<input type="submit" value="Submit">
 		</form>
