@@ -36,8 +36,8 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => env('FACEBOOK_APP_ID'),
-        'client_secret' => env('FACEBOOK_APP_SECRET'),
+        'client_id' => getenv('FACEBOOK_APP_ID'),
+        'client_secret' => getenv('FACEBOOK_APP_SECRET'),
         'redirect' => 'http://localhost/ifb299/bookshare/public/login/facebook/callback',
 ],
 

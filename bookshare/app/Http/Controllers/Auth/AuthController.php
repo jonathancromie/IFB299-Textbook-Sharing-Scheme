@@ -69,11 +69,20 @@ class AuthController extends Controller
         $email = $user->getEmail();
         $avatar = $user->getAvatar();
 
+        findUserOrCreate($user);
+
         \Session::flash('message', 'Welcome '.$name);
 
         return view('index');
 
 
+    }
+
+    public function findUserOrCreate($userDetails) {
+        Student::firstOrCreate([
+            'email' => $userDetails->email,
+            'first_name' => $userDetails->name,
+        ]);
     }
 
     public function postLogin(Request $request) {
