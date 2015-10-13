@@ -39,7 +39,11 @@
 							<section class="special box">
 								<!-- <i class="fa fa-share-alt fa-2x"></i> -->
 								<i class="material-icons md-96">share</i>
-								<a href="share"><h3>Share a Textbook</h3></a>
+								@if (Auth::check())
+									<a href="share"><h3>Share a Textbook</h3></a>
+								@else
+									<a href="login"><h3>Share a Textbook</h3></a>
+								@endif
 								<p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
 							</section>
 						</div>
@@ -47,7 +51,11 @@
 							<section class="special box">
 								<!-- <i class="fa fa-download fa-2x"></i> -->
 								<i class="material-icons md-96">get_app</i>
-								<a href="borrow"><h3>Borrow a Textbook</h3></a>
+								@if (Auth::check())
+									<a href="borrow"><h3>Borrow a Textbook</h3></a>
+								@else
+									<a href="login"><h3>Share a Textbook</h3></a>
+								@endif
 								<p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
 							</section>
 						</div>

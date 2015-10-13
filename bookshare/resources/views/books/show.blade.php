@@ -49,7 +49,12 @@
 		            <td>{{ $value->due_date }}</td>
 		            <td>{{ $value->location }}</td>
 		            <td>
-		                <a class="btn btn-small btn-success" href="{{ URL::to('borrow/'. $value->contract_id) }}">Borrow</a>
+		            	@if (Auth::check())
+			                <a class="btn btn-small btn-success" href="{{ URL::to('borrow/'. $value->contract_id) }}">Borrow</a>
+			            @else
+			            	<a class="btn btn-small btn-success" href="login">Borrow</a>
+			            @endif
+
 		            </td>
 		        </tr>
 	        @endforeach
