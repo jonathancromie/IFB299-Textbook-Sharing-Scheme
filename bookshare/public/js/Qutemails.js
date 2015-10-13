@@ -14,7 +14,7 @@ var filter=/^([\w-]+(?:\.[\w-]+)*)@connect.qut.edu.au/i
 if (filter.test(str))
 testresults=true
 else{
-alert("Please input a QUT email address!")
+document.getElementById("errors").style.display = 'inline';
 testresults=false
 }
 return (testresults)
