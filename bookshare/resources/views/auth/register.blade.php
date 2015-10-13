@@ -35,7 +35,8 @@ p.error_msg {
     <form method="POST" action="register"onSubmit="return checkbae()">
         {!! csrf_field() !!}
 
-        <input type="text" name="email" value="{{ old('email') }}" placeholder="Email" required><br>
+        <!-- <span id="emailspan"></span><br> -->
+        <input type="text" name="email" id="email" value="{{ old('email') }}" placeholder="Email" required><br>
         <input type="text" name="first_name" value="{{ old('first_name') }}" placeholder="First Name" required><br>
         <input type="text" name="last_name" value="{{ old('last_name') }}" placeholder="Last Name" required><br> 
         <select name="sex" value="{{ old('sex') }}" required>
@@ -57,7 +58,7 @@ p.error_msg {
             <option value="WA">WA</option>
         </select><br>
         <span id="passstrength"></span><br>
-        <input type="password" name="pass" id="password" placeholder="Password" required><br>		
+        <input type="password" name="password" id="password" placeholder="Password" required><br>		
         <input type="password" name="password_confirmation" placeholder="Confirm Password" required><br>
         <input type="submit" value="Register">
     </form>

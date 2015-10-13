@@ -62,6 +62,30 @@
     	</tbody>
     </table>
 
+    <h1>Shared Books</h1>   
+    <table>
+        <thead> 
+            <tr>
+                <td>Book</td>
+                <td>Due Date</td>
+                <td>Pickup Location</td>
+                <td>More Information</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($borrower as $key => $value)
+                <tr>
+                    <td>{{ $value->name}}</td>
+                    <td>{{ $value->due_date }}</td>
+                    <td>{{ $value->location }}</td>
+                    <td>
+                        <a class="btn btn-small btn-success" href="{{ URL::to('books/' . $value->book_id) }}">More Information</a>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+
     <h1>Borrowed Books</h1>   
     <table>
         <thead> 
@@ -73,7 +97,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($contract as $key => $value)
+            @foreach($sharer as $key => $value)
                 <tr>
                     <td>{{ $value->name}}</td>
                     <td>{{ $value->due_date }}</td>

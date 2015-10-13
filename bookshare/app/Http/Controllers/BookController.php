@@ -103,6 +103,7 @@ class BookController extends Controller
             $contract->sharer_id = $user->student_id;
             $contract->book_id = $book->book_id;
             $contract->due_date = Input::get('due_date');
+            $contract->location = Input::get('location');
             $contract->save();
 
             $image = Input::file('image');

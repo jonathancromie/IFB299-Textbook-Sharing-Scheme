@@ -8,7 +8,7 @@ class Contract extends Model
 {
 	protected $primaryKey = 'contract_id';
 
-	protected $fillable = array('sharer_id', 'borrower_id', 'due_date');
+	protected $fillable = array('sharer_id', 'borrower_id', 'due_date', 'location');
 
 	public function sharer() {
 		$this->belongsTo('BookShare\Student');

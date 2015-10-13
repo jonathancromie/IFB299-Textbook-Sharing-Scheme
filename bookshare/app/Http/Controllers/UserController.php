@@ -20,7 +20,7 @@ class UserController extends Controller
     public function showProfile()
     {
         $student_id = \Auth::user()->student_id;
-        $contract = \DB::table('students')
+        $borrower = \DB::table('students')
                     ->select('students.*', 'books.*', 'contracts.*')
                     ->join('books', 'students.student_id', '=', 'books.student_id')
                     ->join('contracts', function($join) use($student_id) {
@@ -28,8 +28,16 @@ class UserController extends Controller
                             ->where('contracts.borrower_id', '=', $student_id);
                     })
                     ->get();
+        $sharer = \DB::table('students')
+                    ->select('students.*', 'books.*', 'contracts.*')
+                    ->join('books', 'students.student_id', '=', 'books.student_id')
+                    ->join('contracts', function($join) use($student_id) {
+                        $join->on('books.book_id', '=', 'contracts.book_id')
+                            ->where('contracts.sharer_id', '=', $student_id);
+                    })
+                    ->get();
 
-        return View::make('users.profile')->with('contract', $contract);
+        return View::make('users.profile')->with('borrower', $borrower)->with('sharer', $sharer);
     }
     // /**
     //  * Display a listing of the resource.

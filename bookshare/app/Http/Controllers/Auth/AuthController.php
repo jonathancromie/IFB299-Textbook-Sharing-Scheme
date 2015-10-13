@@ -69,12 +69,12 @@ class AuthController extends Controller
         $email = $user->getEmail();
         $avatar = $user->getAvatar();
 
-        $student = Student::firstOrCreate([
-            'email' => $email,
-            'first_name' => $name,
-        ]);
-
-        $student->save();
+        /* NEED TO FIGURE THIS OUT */
+        // $student = Student::firstOrCreate([
+        //     'email' => $email,
+        //     'first_name' => $name,
+        // ]);
+        // $student->save();
 
         \Session::flash('message', 'Welcome '.$name);
 
