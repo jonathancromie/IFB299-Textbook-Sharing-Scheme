@@ -1,9 +1,24 @@
-@extends('layouts.master')
+<!-- Error box style  -->
+<style>
+p.error_msg {
+	color:#4A4A5C;
+	font-family:courier;
+	text-align:center;
+    border-style: solid;
+    border-color: #0000ff;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+}
+</style>
 
 <!--Validate email and password stregnth  -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="{{ asset('js/Qutemails.js') }}"></script>
 <script src="{{ asset('js/password-strength.js') }}"></script>
+
+@extends('layouts.master')
 
 @section('title', 'Sign Up')
 
@@ -11,7 +26,12 @@
     @parent
 
     <h2>Register</h2>
+    <!-- error msg -->            
+   <div id="errors" style="display:none;">
+   <p class="error_msg" > Errors: Please Enter your QUT email only. </p>
+   </div>
 
+    <!-- Start form -->  
     <form method="POST" action="register"onSubmit="return checkbae()">
         {!! csrf_field() !!}
 
