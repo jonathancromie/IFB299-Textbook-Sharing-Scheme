@@ -15,6 +15,8 @@ use Socialite;
 use Illuminate\Routing\Controller as SocialController;
 use Request as SocialRequest; 
 
+use Mail;
+
 class AuthController extends Controller
 {
     /*
@@ -111,13 +113,16 @@ class AuthController extends Controller
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
-            \Log::info('register failed');
+            \Log::info($validator->errors()->all());
             $this->throwValidationException($request, $validator);
         }
 
         Auth::login($this->create($request->all()));
 
         \Session::flash('message', 'You have successfully registered.');
+
+        
+
         return redirect('index');
     }
 
@@ -151,7 +156,7 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return Student::create([
+        $student = Student::create([
             'email' => $data['email'],
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
@@ -164,5 +169,13 @@ class AuthController extends Controller
             'state' => $data['state'],
             'password' => bcrypt($data['password']),
         ]);
+
+        Mail::send('emails.welcome', $data, function($message) use ($data){
+            $message->from('sharebookqut@gmail.com', 'ShareBook');
+            $message->to($data['email']);
+            $message->subject('Welcome to ShareBook');
+        });
+
+        return $student;
     }
 }

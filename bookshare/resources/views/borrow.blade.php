@@ -1,11 +1,13 @@
 @extends('layouts.master')
 
+<script src="{{ asset('js/sorttable.js') }}"></script>
+
 @section('title', 'Borrow Textbook')
 
 @section('content')
     @parent
     <h2>Borrow Textbook</h2>
-	<table>
+	<table class="sortable">
     <thead>
         <tr>
             <td>Name</td>

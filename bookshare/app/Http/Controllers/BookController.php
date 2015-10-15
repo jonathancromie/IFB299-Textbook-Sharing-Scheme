@@ -71,7 +71,7 @@ class BookController extends Controller
                     'isbn' => 'required',
                     'publisher' => 'required',
                     'edition' => 'required|numeric',
-                    'due_date' => 'required'
+                    'faculty' => 'required',
                     );
         $validator = Validator::make(Input::all(), $rules);
 
@@ -102,8 +102,9 @@ class BookController extends Controller
             $contract = new Contract;
             $contract->sharer_id = $user->student_id;
             $contract->book_id = $book->book_id;
-            $contract->due_date = Input::get('due_date');
+            $contract->pickup_date = Input::get('pickup_date');
             $contract->location = Input::get('location');
+            $contract->due_date = Input::get('due_date');
             $contract->save();
 
             $image = Input::file('image');

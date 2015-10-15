@@ -1,12 +1,14 @@
 @extends('layouts.master')
 
-@section('title', 'Borrow Textbook')
+<script src="{{ asset('js/sorttable.js') }}"></script>
+
+@section('title', 'Search Results')
 
 @section('content')
     @parent
     <h2>More Information</h2> 
     <h1>Book Information</h1>
-    <table>   	
+    <table class="sortable">  	
 		<thead>
 	        <tr>
 	            <td>Name</td>
@@ -37,8 +39,9 @@
 		<thead>
 	        <tr>
 	            <td>Sharer</td>
-	            <td>Due Date</td>
+	            <td>Pickup Date</td>
 	            <td>Pickup Location</td>
+	            <td>Due Date</td>
 	            <td>Borrow</td>
 	        </tr>
 	    </thead>
@@ -46,8 +49,9 @@
 	    	@foreach($information as $key => $value)	
 		        <tr>
 		            <td>{{ $value->first_name}} {{$value->last_name}}</td>
-		            <td>{{ $value->due_date }}</td>
+		            <td>{{ $value->pickup_date }}</td>
 		            <td>{{ $value->location }}</td>
+		            <td>{{ $value->due_date }}</td>
 		            <td>
 		            	@if (Auth::check())
 			                <a class="btn btn-small btn-success" href="{{ URL::to('borrow/'. $value->contract_id) }}">Borrow</a>

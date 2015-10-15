@@ -22,7 +22,7 @@
     <!-- One -->
 			<section id="one" class="wrapper style1">
 				<header class="major">
-					<h2>Knowledge is power</h2>
+					<h2>Because knowledge is power</h2>
 					<p>Choose an option</p>
 				</header>
 				<div class="container">
@@ -54,7 +54,7 @@
 								@if (Auth::check())
 									<a href="borrow"><h3>Borrow a Textbook</h3></a>
 								@else
-									<a href="login"><h3>Share a Textbook</h3></a>
+									<a href="login"><h3>Borrow a Textbook</h3></a>
 								@endif
 								<p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
 							</section>

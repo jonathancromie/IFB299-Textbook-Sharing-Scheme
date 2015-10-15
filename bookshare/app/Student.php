@@ -42,6 +42,6 @@ class Student extends Model implements AuthenticatableContract,
     }
 
     public function contract() {
-        return $this->hasMany('BookShare\Contract');
+        return $this->belongsToMany('BookShare\Contract');
     }
 }

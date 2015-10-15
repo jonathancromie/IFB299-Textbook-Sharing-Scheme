@@ -15,6 +15,7 @@ use BookShare\Book;
 use View;
 use Auth;
 use DB;
+use Mail;
 
 use BookShare\Sharer;
 
@@ -44,14 +45,25 @@ class Front extends Controller
         $search = Input::get('search');
         $query = '%'.$search.'%';
 
-        // $books = Book::where('name', 'like', $query, 'and', 'author', 'like', $query, 'and', 'isbn', 'like', $query, 'and', 'faculty', 'like', $query)->get();
+        // $books = Book::where('name', 'like', $query)
+        //                 ->orWhere('author', 'like', $query)
+        //                 ->orWhere('isbn', 'like', $query)
+        //                 ->orWhere('faculty', 'like', $query)->get();
 
-        $books = Book::where('name', 'like', $query)
-                        ->orWhere('author', 'like', $query)
-                        ->orWhere('isbn', 'like', $query)
-                        ->orWhere('faculty', 'like', $query)->get();
+        // return View::make('results')->with('books', $books);
 
-        return View::make('results')->with('books', $books);
+        $information = DB::table('students')
+                    ->select('students.*', 'books.*', 'contracts.*')
+                    ->join('books', 'students.student_id', '=', 'books.student_id')
+                    ->join('contracts', function($join) use($query) {
+                        $join->on('books.book_id', '=', 'contracts.book_id')
+                            ->where('books.name', 'like', $query)
+                            ->orWhere('books.author', 'like', $query)
+                            ->orWhere('books.isbn', 'like', $query)
+                            ->orWhere('books.faculty', 'like', $query);
+                    })
+                    ->get();
+        return View::make('books.show')->with('information', $information);
     }
 
     public function help() {

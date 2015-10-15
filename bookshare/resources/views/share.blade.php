@@ -35,8 +35,9 @@
 				<option value="Science and Mathematics">Science and Mathematics</option>
 			</select>	
 			<br>
-			<input type="date" name="due_date" placeholder="Due Date" required><br>
+			<input type="date" name="pickup_date" placeholder="Pickup Date" required><br>
 			<input type="text" name="location" placeholder="Pickup Location" required><br>
+			<input type="date" name="due_date" placeholder="Due Date" required><br>
 			<label for="fileToUpload">Upload Photo</label>
 			<input type="file" name="image" id="image" accept="image/gif, image/jpeg, image/png" required><br>
 			<input type="hidden" name="MAX_FILE_SIZE" value="20971520">
