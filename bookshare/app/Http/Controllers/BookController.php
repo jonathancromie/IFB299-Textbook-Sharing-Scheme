@@ -99,12 +99,17 @@ class BookController extends Controller
             // USE THIS WHEN BORROW BUTTON CLICKED
             // $contract = Book::find(1)->contracts()->where('book_id', '=', $book->book_id);
 
+            $pickup_date = strtotime(Input::get('pickup_date'));
+            $due_date = strtotime(Input::get('due_date'));
+
+            \Log::info($pickup_date);
+
             $contract = new Contract;
             $contract->sharer_id = $user->student_id;
             $contract->book_id = $book->book_id;
-            $contract->pickup_date = Input::get('pickup_date');
+            $contract->pickup_date = date('Y-m-d H:i:s', $pickup_date);
             $contract->location = Input::get('location');
-            $contract->due_date = Input::get('due_date');
+            $contract->due_date = date('Y-m-d H:i:s', $due_date);
             $contract->save();
 
             $image = Input::file('image');
