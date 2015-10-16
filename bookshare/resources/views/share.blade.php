@@ -4,6 +4,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="{{ asset('js/hyphenate.js') }}"></script>
 
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" type="text/css" />
+
+
 @section('title', 'Share Textbook')
 
 @section('content')
@@ -35,14 +39,20 @@
 				<option value="Science and Mathematics">Science and Mathematics</option>
 			</select>	
 			<br>
-			<input type="date" name="pickup_date" placeholder="Pickup Date" required><br>
+	        <input type="text" class="form-control" id="datetimepicker1" name="pickup_date" placeholder="Pickup Date" required><br>		    
 			<input type="text" name="location" placeholder="Pickup Location" required><br>
-			<input type="date" name="due_date" placeholder="Due Date" required><br>
-			<label for="fileToUpload">Upload Photo</label>
-			<input type="file" name="image" id="image" accept="image/gif, image/jpeg, image/png" required><br>
+			<input type="text" class="form-control" id="datetimepicker2" name="due_date" placeholder="Due Date" required><br>
+			<input type="file" class="file" name="image" id="image" accept="image/gif, image/jpeg, image/png" required><br>
 			<input type="hidden" name="MAX_FILE_SIZE" value="20971520">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<input type="submit" value="Submit">
 		</form>
 	</div>
+
+<script src="{{ asset('js/moment.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
+<script src="{{ asset('js/datetimepicker.js') }}"></script>
+
+
 @endsection

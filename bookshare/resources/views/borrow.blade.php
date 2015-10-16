@@ -17,6 +17,7 @@
             <td>Edition</td>
             <td>Faculty</td> -->
             <td>Image</td>
+            <td>More Information</td>
         </tr>
     </thead>
     <tbody>
