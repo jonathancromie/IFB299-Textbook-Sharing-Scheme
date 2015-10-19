@@ -4,6 +4,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="{{ asset('js/isbn.js') }}"></script>
 <script src="{{ asset('js/hyphenate.js') }}"></script>
+<script src="{{ asset('js/author.js') }}"></script>
 
 <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css" />
 <link rel="stylesheet" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" type="text/css" />
@@ -22,7 +23,8 @@
 		<p>{{Session::get('sharerError')}}</p>
 		<form method="POST" action="books" accept-charset="UTF-8" enctype="multipart/form-data">
 			<input type="text" name="name" placeholder="Name" required><br>
-			<input type="text" name="author" placeholder="Author" required><br>
+			<input type="text" id="author" name="author" placeholder="Author" required><br>
+			<span id="edit" onclick="edit();"></span><br>
 			<span id="isbnspan"></span><br>
 			<input type="text" id="isbn" name="isbn" placeholder="ISBN" required><br>	
 			<input type="text" name="publisher" placeholder="Publisher" required><br>
