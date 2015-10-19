@@ -73,7 +73,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($borrower as $key => $value)
+            @foreach($sharer as $key => $value)
                 <tr>
                     <td>{{ $value->name}}</td>
                     <td>{{ $value->due_date }}</td>
@@ -97,7 +97,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($sharer as $key => $value)
+            @foreach($borrower as $key => $value)
                 <tr>
                     <td>{{ $value->name}}</td>
                     <td>{{ $value->due_date }}</td>

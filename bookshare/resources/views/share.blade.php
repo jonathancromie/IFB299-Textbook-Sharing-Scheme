@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
-<script type="text/javascript" src="http://isbnjs.googlecode.com/svn/trunk/isbn.js"></script>
+<!-- <script type="text/javascript" src="http://isbnjs.googlecode.com/svn/trunk/isbn.js"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="{{ asset('js/isbn.js') }}"></script>
 <script src="{{ asset('js/hyphenate.js') }}"></script>
 
 <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css" />
@@ -39,7 +40,7 @@
 				<option value="Science and Mathematics">Science and Mathematics</option>
 			</select>	
 			<br>
-	        <input type="text" class="form-control" id="datetimepicker1" name="pickup_date" placeholder="Pickup Date" required><br>		    
+	        <input type="text" class="form-control" id="datetimepicker1" name="pickup_date" required><br>		    
 			<input type="text" name="location" placeholder="Pickup Location" required><br>
 			<input type="text" class="form-control" id="datetimepicker2" name="due_date" placeholder="Due Date" required><br>
 			<input type="file" class="file" name="image" id="image" accept="image/gif, image/jpeg, image/png" required><br>

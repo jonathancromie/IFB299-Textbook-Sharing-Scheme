@@ -668,6 +668,9 @@
 
 		table thead {
 			border-bottom: solid 2px rgba(144, 144, 144, 0.25);
+			color: #629DD1;
+			text-decoration: underline;
+			cursor: pointer;
 		}
 
 		table tfoot {

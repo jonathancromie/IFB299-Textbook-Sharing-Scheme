@@ -63,7 +63,7 @@ class Front extends Controller
                             ->orWhere('books.faculty', 'like', $query);
                     })
                     ->get();
-        return View::make('books.show')->with('information', $information);
+        return View::make('results')->with('information', $information);
     }
 
     public function help() {

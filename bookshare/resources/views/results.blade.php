@@ -18,23 +18,28 @@
                 <td>Edition</td>
                 <td>Faculty</td>
                 <td>Image</td>
+                <td>More Information</td>
             </tr>
         </thead>
         <tbody>
             @foreach($information as $key => $value)
                 <tr>
-                    <td>{{ $value->name }}</td>
+                    <td>{{ $value->book_id }}</td>
                     <td>{{ $value->author }}</td>
                     <td>{{ $value->isbn }}</td>
                     <td>{{ $value->publisher }}</td>
                     <td>{{ $value->edition }}</td>
                     <td>{{ $value->faculty }}</td>
                     <td><img src="{{ URL::to('uploads/' . $value->image) }}" alt="{{ $value->book_id }}"/></td>
+                    <td>
+                        <a class="btn btn-small btn-success" href="{{ URL::to('books/' . $value->book_id) }}">More Information</a>
+                    </td>
+
                 </tr>
             @endforeach
         </tbody>        
     <table> 
-    <h1>Sharer Information</h1>
+    <!-- <h1>Sharer Information</h1>
     <table>     
         <thead>
             <tr>
@@ -63,5 +68,5 @@
                 </tr>
             @endforeach
         </tbody>        
-    <table>    
+    <table>   -->  
 @endsection
