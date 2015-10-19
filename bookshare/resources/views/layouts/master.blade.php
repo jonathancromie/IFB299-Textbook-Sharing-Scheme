@@ -4,7 +4,7 @@
         <title>@yield('title')</title>
         @yield('scripts')
         <!-- <base href="http://localhost/ifb299/bookshare/public/"> -->
-        <base href="http://60.240.144.91//ifb299/bookshare/public/">
+        <base href="http://60.240.144.91/ifb299/bookshare/public/">
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
