@@ -2,7 +2,7 @@
 
 <script src="{{ asset('js/sorttable.js') }}"></script>
 
-@section('title', 'Search Results')
+@section('title', 'More Information')
 
 @section('content')
     @parent
