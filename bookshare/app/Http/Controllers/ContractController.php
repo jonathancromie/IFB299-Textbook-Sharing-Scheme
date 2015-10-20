@@ -10,6 +10,7 @@ use BookShare\Student;
 use BookShare\Contract;
 use BookShare\Book;
 use Mail;
+use DateTime;
 
 class ContractController extends Controller
 {
@@ -23,6 +24,15 @@ class ContractController extends Controller
         Mail::send('emails.success', ['contract' => $contract], function ($m) use ($contract) {
             $m->to(Auth::user()->email, Auth::user()->first_name)->subject('Successfully borrowed textbook!');
         });
+
+        $due_date = new DateTime($contract->due_date);
+        $reminder_date = $due_date->modify('-1 Week');
+
+        Mail::later($reminder_date, 'emails.reminder', ['contract' => $contract], function ($m) use ($contract) {
+            $m->to(Auth::user()->email, Auth::user()->first_name)->subject('Due date reminder');
+        });
+
+        \Log::info($reminder_date->format('Y-m-d H:i:s'));
 
         $book = Book::where('book_id', $contract->book_id);
         // \Log::info($book->book_id);

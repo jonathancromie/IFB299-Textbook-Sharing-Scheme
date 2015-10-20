@@ -39,20 +39,27 @@ class UserController extends Controller
 
         return View::make('users.profile')->with('borrower', $borrower)->with('sharer', $sharer);
     }
-    
-    /**
-     * Send an e-mail reminder to the user.
+
+     /**
+     * Send a reminder e-mail to a given user.
      *
      * @param  Request  $request
      * @param  int  $id
      * @return Response
      */
-    public function sendEmailReminder(Request $request, $id)
+    public function sendReminderEmail(Request $request, $id)
     {
-        $user = User::findOrFail($id);   
+        $user = User::findOrFail($id);
 
-        Mail::later('emails.reminder', ['user' => $user], function ($m) use ($user) {
-            $m->to($user->email, $user->name)->subject('Your Reminder!');
-        });
+        $contract = Contract::where('borrower_id', $user->student_id);
+        $due_date = $contract->due_date;
+        $reminder_date = $due_date(strtotime('-1 Week'));
+
+        \Log::info($reminder_date);
+
+        $job = (new SendReminderEmail($user))->delay($reminder_date);
+
+        // $this->dispatch($job);
+        $this->dispatchFrom('BookShare\Jobs\SendReminderEmail', $request);
     }
 }

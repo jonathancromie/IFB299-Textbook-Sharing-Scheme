@@ -20,6 +20,7 @@ use URL;
 use Auth;
 use Input;
 use DB;
+use Mail;
 
 class BookController extends Controller
 {
@@ -77,6 +78,7 @@ class BookController extends Controller
 
         // // process the share redirect
         if ($validator->fails()) {
+            \Log::error($request, $rules);
             return Redirect::to('share')->withErrors($validator);
         } 
 
