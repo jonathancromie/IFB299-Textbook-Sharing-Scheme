@@ -1,0 +1,5 @@
+<?php
+	return [
+		'FACEBOOK_APP_ID' => '822018287916082'
+		'FACEBOOK_APP_SECRET' => '3be705a5ff35a8b216b14ff4856badce'
+	];

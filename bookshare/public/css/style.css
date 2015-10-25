@@ -211,6 +211,8 @@
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
+	input[type="file"],
+	input[type="date"],
 	select,
 	textarea {
 		-moz-appearance: none;
@@ -223,12 +225,24 @@
 		border: none;
 		border: solid 1px rgba(144, 144, 144, 0.25);
 		color: inherit;
-		display: block;
+		display: inline-block;
+		margin: 1em;
 		outline: 0;
 		padding: 0 1em;
 		text-decoration: none;
 		width: 100%;
 	}
+/*
+	input[type="date"]:before {
+		content: attr(placeholder) !important;
+    	color: #aaa;
+    	margin-right: 0.5em;
+	}
+
+	input[type="date"]:focus:before,
+  	input[type="date"]:valid:before {
+    	content: "";
+  	}*/
 
 		input[type="text"]:invalid,
 		input[type="password"]:invalid,
@@ -245,6 +259,26 @@
 		textarea:focus {
 			border-color: #629DD1;
 			box-shadow: 0 0 0 1px #629DD1;
+		}
+
+		input[type=search]
+		{
+			webkit-appearance: none;
+		}
+		@media screen and (-webkit-min-device-pixel-ratio:0)
+		{
+			input[type=date].form-control,input[type=time].form-control,input[type=datetime-local].form-control,input[type=month].form-control
+			{
+				line-height: 34px;
+			}
+			.input-group-sm input[type=date],.input-group-sm input[type=time],.input-group-sm input[type=datetime-local],.input-group-sm input[type=month],input[type=date].input-sm,input[type=time].input-sm,input[type=datetime-local].input-sm,input[type=month].input-sm
+			{
+				line-height: 30px;
+			}
+			.input-group-lg input[type=date],.input-group-lg input[type=time],.input-group-lg input[type=datetime-local],.input-group-lg input[type=month],input[type=date].input-lg,input[type=time].input-lg,input[type=datetime-local].input-lg,input[type=month].input-lg
+			{
+				line-height: 46px;
+			}
 		}
 
 	.select-wrapper {
@@ -283,27 +317,13 @@
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
+	input[type="file"],
 	select {
 		height: 2.75em;
 	}
 
 	textarea {
 		padding: 0.75em 1em;
-	}
-
-	input[type="checkbox"],
-	input[type="radio"] {
-		-moz-appearance: none;
-		-webkit-appearance: none;
-		-o-appearance: none;
-		-ms-appearance: none;
-		appearance: none;
-		display: block;
-		float: left;
-		margin-right: -2em;
-		opacity: 0;
-		width: 1em;
-		z-index: -1;
 	}
 
 		input[type="checkbox"] + label,
@@ -648,6 +668,9 @@
 
 		table thead {
 			border-bottom: solid 2px rgba(144, 144, 144, 0.25);
+			color: #629DD1;
+			text-decoration: underline;
+			cursor: pointer;
 		}
 
 		table tfoot {
@@ -1085,3 +1108,76 @@
 		#footer .icons a {
 			color: #bbb;
 		}
+		
+#terms p{
+	text-align: left;
+	font-size: 1.1em;
+}
+
+#passstrength {
+	color:red;
+	/*font-family: verdana;
+	font-size: 10px;
+	font-weight: bold;*/
+}
+
+#isbnspan {
+	color:red;
+}
+
+#edit {
+	color: #629DD1;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/* Rules for sizing the icon.*/
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-96 { font-size: 96px; }
+
+/* Rules for using icons as black on a light background.*/
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+
+/*input[type="file"] {
+	color:transparent;
+
+}
+
+input[type="file"]:before {
+	content: attr(placeholder) !important;
+	color: #aaa;
+	margin-right: 0.5em;
+}
+
+input[type="file"]:focus:before, input[type="file"]:valid:before {
+	content: "";
+}
+
+input[type="file"]::after {
+	content: attr(file); 
+}
+
+.file::-webkit-file-upload-button {
+  	visibility: hidden;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
