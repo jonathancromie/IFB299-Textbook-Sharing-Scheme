@@ -22,14 +22,14 @@ class ContractController extends Controller
         $contract->save();
 
         Mail::send('emails.success', ['contract' => $contract], function ($m) use ($contract) {
-            $m->to(Auth::user()->email, Auth::user()->first_name)->subject('Successfully borrowed textbook!');
+            $m->to(Auth::user()->email, Auth::user()->first_name)->subject('Successfully Borrowed Textbook!');
         });
 
         $due_date = new DateTime($contract->due_date);
         $reminder_date = $due_date->modify('-1 Week');
 
         Mail::later($reminder_date, 'emails.reminder', ['contract' => $contract], function ($m) use ($contract) {
-            $m->to(Auth::user()->email, Auth::user()->first_name)->subject('Due date reminder');
+            $m->to(Auth::user()->email, Auth::user()->first_name)->subject('Due Date Reminder');
         });
 
         \Log::info($reminder_date->format('Y-m-d H:i:s'));

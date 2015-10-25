@@ -24,7 +24,8 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="submit" value="Login"></input><br><br>
 
-        <a href="login/facebook">Login in with Facebook</a>
+        <!-- IMPLEMENT SOCIAL LOGIN AT A LATER TIME -->
+        <!-- <a href="login/facebook">Login in with Facebook</a> -->
     </form>
 
     <p>Not registered yet? <a href="register">Click here</a> </p>

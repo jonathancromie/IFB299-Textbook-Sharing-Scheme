@@ -53,7 +53,7 @@ class UserController extends Controller
 
         $contract = Contract::where('borrower_id', $user->student_id);
         $due_date = $contract->due_date;
-        $reminder_date = $due_date(strtotime('-1 Week'));
+        $reminder_date = $due_date(strtotime('-1 Day'));
 
         \Log::info($reminder_date);
 

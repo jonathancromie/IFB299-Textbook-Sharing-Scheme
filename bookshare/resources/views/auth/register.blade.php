@@ -25,7 +25,10 @@ p.error_msg {
 @section('content')
     @parent
 
+    {{Session::get('message')}}
+
     <h2>Register</h2>
+
     <!-- error msg -->            
    <div id="errors" style="display:none;">
    <p class="error_msg" > Errors: Please Enter your QUT email only. </p>
@@ -37,8 +40,16 @@ p.error_msg {
 
         <!-- <span id="emailspan"></span><br> -->
         <input type="text" name="email" id="email" value="{{ old('email') }}" placeholder="Email" required><br>
-        <input type="text" name="first_name" value="{{ old('first_name') }}" placeholder="First Name" required><br>
-        <input type="text" name="last_name" value="{{ old('last_name') }}" placeholder="Last Name" required><br> 
+        @if(Auth::check())
+            <input type="text" name="first_name" value="{{ $names[0] }}" placeholder="First Name" required><br>
+        @else
+            <input type="text" name="first_name" value="{{ old('first_name') }}" placeholder="First Name" disabled="true" required><br>
+        @endif        
+        @if (Auth::check())
+            <input type="text" name="first_name" value="{{ $names[1] }}" placeholder="First Name" required><br>
+        @else
+            <input type="text" name="last_name" value="{{ old('last_name') }}" placeholder="Last Name" required><br> 
+        @endif
         <select name="sex" value="{{ old('sex') }}" required>
             <option value="Male">Male</option>
             <option value="Female">Female</option>

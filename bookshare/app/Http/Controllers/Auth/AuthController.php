@@ -64,23 +64,31 @@ class AuthController extends Controller
     {
         $user = Socialite::driver('facebook')->user();
 
-        $token = $user->token;
-
-        $id = $user->getId();
+        // $id = $user->getId();
         $name = $user->getName();
         $email = $user->getEmail();
-        $avatar = $user->getAvatar();
+        $token = $user->token;
+        // $avatar = $user->getAvatar();
 
-        /* NEED TO FIGURE THIS OUT */
-        // $student = Student::firstOrCreate([
-        //     'email' => $email,
-        //     'first_name' => $name,
-        // ]);
-        // $student->save();
+        $credentials = [
+            'email' => $email,
+            'password' => $token
+        ];
 
-        \Session::flash('message', 'Welcome '.$name);
+        $names = explode(' ', $name);
 
-        return view('index');
+        \Log::info($email);
+
+        
+
+        // Auth::once($credentials)->redirect('auth.register')->with('names', $names);
+        if (Auth::once($credentials)) {
+            \Session::flash('message', 'Welcome '.$name.', we just need a few more details');
+            return view('auth.register')->with('names', $names);
+        }
+        
+        return redirect()->back()->withErrors('Login/Pass do not match')->withInput();
+
 
 
     }
