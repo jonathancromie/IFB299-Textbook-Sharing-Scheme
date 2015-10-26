@@ -178,7 +178,7 @@ class AuthController extends Controller
 
         Mail::send('emails.welcome', $data, function($message) use ($data){
             $message->from('sharebookqut@gmail.com', 'ShareBook');
-            $message->to($data['email']);
+            $message->to($data->email);
             $message->subject('Welcome to ShareBook');
         });
 

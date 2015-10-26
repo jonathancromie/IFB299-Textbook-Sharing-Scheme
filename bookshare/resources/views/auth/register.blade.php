@@ -40,7 +40,6 @@
         <input type="text" id="ValidPhone" name="phone" value="{{ old('phone') }}" placeholder="Phone Number" required><br>
         <input type="text" name="street" id="ValidStreet" value="{{ old('street') }}" placeholder="Street" required><br>
         <input type="text" name="suburb" id="ValidSuburb" value="{{ old('suburb') }}" placeholder="Suburb" required><br>
-        <input type="text" name="post_code" id="ValidPostCode" value="{{ old('post_code') }}" placeholder="Post Code" required><br>
         <select name="state" id="ValidState" value="{{ old('state') }}" required>
             <option value="0">Make a Selection</option>
             <option value="ACT">ACT</option>
@@ -51,6 +50,7 @@
             <option value="VIC">VIC</option>
             <option value="WA">WA</option>
         </select><br>
+        <input type="text" name="post_code" id="ValidPostCode" value="{{ old('post_code') }}" placeholder="Post Code" required><br>
         <span id="passstrength"></span><br>
         <input type="password" name="password" id="password" placeholder="Password" required><br>		
         <input type="password" id="ValidConfirmPassword" name="password_confirmation" placeholder="Confirm Password" required><br>

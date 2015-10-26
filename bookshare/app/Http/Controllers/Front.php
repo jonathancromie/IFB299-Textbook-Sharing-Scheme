@@ -17,11 +17,25 @@ use Auth;
 use DB;
 use Mail;
 
+use BookShare\Contract;
+use BookShare\Student;
+
 use BookShare\Sharer;
 
 class Front extends Controller
 {
     public function index() {
+
+        $student = Student::findOrFail(20);
+
+        \Log::info($student);
+
+        Mail::send('emails.reminder', ['student' => $student], function ($m) use ($student) {
+            $m->to($student->email);
+            $m->from('sharebookqut@gmail.com');
+            $m->subject('Your Reminder!');
+        });
+
         return view('index', array('page' => 'index'));
     }
 

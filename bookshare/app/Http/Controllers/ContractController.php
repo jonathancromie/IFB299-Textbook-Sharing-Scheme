@@ -25,7 +25,7 @@ class ContractController extends Controller
 
         $data = array(
             'email' => $student->email,
-            'fist_name' => $student->first_name,
+            'first_name' => $student->first_name,
         );
 
         Mail::send('emails.success', $data, function($message) use ($data){
@@ -37,11 +37,7 @@ class ContractController extends Controller
         $due_date = new DateTime($contract->due_date);
         $reminder_date = $due_date->modify('-1 Week');
         $today = new DateTime("now");        
-        $interval =  $reminder_date->getTimestamp() - $today->getTimestamp();
-
-        \Log::info(gettype($interval));
-
-        
+        $interval =  $reminder_date->getTimestamp() - $today->getTimestamp();        
 
         Mail::later($interval, 'emails.reminder', $data, function($message) use ($data){
             $message->from('sharebookqut@gmail.com', 'ShareBook');
