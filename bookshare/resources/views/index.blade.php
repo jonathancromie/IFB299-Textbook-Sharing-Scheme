@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+
 @section('title', 'Home')
 
 @section('content')

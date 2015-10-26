@@ -19,7 +19,7 @@
             <link rel="stylesheet" href="{{ asset('css/skel.css') }}" type="text/css" />            
             <link rel="stylesheet" href="{{ asset('css/style-xlarge.css') }}" type="text/css" />
         </noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+        
         
     </head>
     <body>
