@@ -77,8 +77,6 @@ class AuthController extends Controller
 
         $names = explode(' ', $name);
 
-        \Log::info($email);
-
         
 
         // Auth::once($credentials)->redirect('auth.register')->with('names', $names);

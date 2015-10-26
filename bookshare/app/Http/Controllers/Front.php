@@ -66,6 +66,10 @@ class Front extends Controller
         return View::make('results')->with('information', $information);
     }
 
+    public function about() {
+        return view('about', array('page' => 'about'));
+    }
+
     public function help() {
         return view('help', array('page' => 'help'));
     }

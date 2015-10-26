@@ -18,6 +18,7 @@ Route::get('/borrow', 'Front@borrow');
 Route::get('/search', 'Front@search');
 Route::get('/results', 'Front@results');
 Route::resource('books', 'BookController');
+Route::get('/about', 'Front@about');
 Route::get('/help', 'Front@help');
 Route::get('/faq', 'Front@faq');
 Route::get('/terms', 'Front@terms');

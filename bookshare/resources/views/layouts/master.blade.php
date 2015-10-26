@@ -69,32 +69,39 @@
                         <div class="6u">
                             <h3>About</h3>
                             <ul class="alt">
+                                <li><a href="about">About Us</a></li>
                                 <li><a href="help">Help</a></li>
                                 <li><a href="faq">FAQ</a></li>
                                 <li><a href="terms">Terms and Conditions</a></li>
                             </ul>
                         </div>
                         <div class="6u">
-                            <h3>Faucibus</h3>
+                            <h3>Contact Us</h3>
                             <ul class="alt">
-                                <li><a href="#">Nascetur nunc varius</a></li>
-                                <li><a href="#">Vis faucibus sed tempor</a></li>
-                                <li><a href="#">Massa amet lobortis vel</a></li>
-                                <li><a href="#">Nascetur nunc varius</a></li>
+                                <li>sharebookqut@gmail.com</li>
+                            </ul>
+                            <ul class="icons">
+                                <li><a href="https://twitter.com/sharebookqut" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                                <li><a href="https://www.facebook.com/ShareBook-1080072202017113" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                                <!-- <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li> -->
+                                <!-- <li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li> -->
+                                <!-- <li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li> -->
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="6u">
-                    <h2>Aliquam Interdum</h2>
-                    <p>Blandit nunc tempor lobortis nunc non. Mi accumsan. Justo aliquet massa adipiscing cubilia eu accumsan id. Arcu accumsan faucibus vis ultricies adipiscing ornare ut. Mi accumsan justo aliquet.</p>
-                    <ul class="icons">
-                        <li><a href="https://twitter.com/sharebookqut" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="https://www.facebook.com/ShareBook-1080072202017113" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                        <!-- <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li> -->
-                        <!-- <li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li> -->
-                        <!-- <li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li> -->
+                    <h2>Thank You</h2>
+                    <ul class="alt">
+                        <li>Fattoo Abduallah</li>
+                        <li>Lei Wang</li>
+                        <li>Spencer El</li>
+                        <li>Andrew Wallington</li>
+                        <li>Yaman Sahfi</li>
+                        <li>Liu Weian</li>
+                        <li>Jonathan Cromie</li>
                     </ul>
+                    
                 </div>
             </div>
             <ul class="copyright">

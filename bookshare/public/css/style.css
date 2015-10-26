@@ -1110,8 +1110,13 @@
 		}
 		
 #terms p{
-	text-align: left;
-	font-size: 1.1em;
+	/*text-align: left;*/
+	font-size: 1em;
+}
+
+#about p{
+	/*text-align: left;*/
+	font-size: 1em;
 }
 
 #passstrength {
