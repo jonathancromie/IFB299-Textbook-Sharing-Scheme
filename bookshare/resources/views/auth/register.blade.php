@@ -1,18 +1,3 @@
-<!-- Error box style  -->
-<style>
-p.error_msg {
-	color:#4A4A5C;
-	font-family:courier;
-	text-align:center;
-    border-style: solid;
-    border-color: #0000ff;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
-}
-</style>
-
 <!--Validate QUT email and password stregnth  -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="{{ asset('js/Qutemails.js') }}"></script>
@@ -117,7 +102,7 @@ p.error_msg {
         <span id="passstrength"></span><br>
         <input type="password" name="password" id="password" placeholder="Password" required><br>		
         <input type="password" name="password_confirmation" placeholder="Confirm Password" required><br>
-        <input type="checkbox" name="agreed" value="1"  required> By submitting this I agree to Bookshare <a href=" ">Terms and conditions.</a>
+        <input type="checkbox" name="agreed" value="0" required> By submitting this I agree to ShareBook <a href="terms">Terms and conditions.</a><br>
 
         <input type="submit" value="Register">
     </form>

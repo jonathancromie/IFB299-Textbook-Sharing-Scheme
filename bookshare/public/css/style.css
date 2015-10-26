@@ -1147,6 +1147,18 @@
 .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
 .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
 
+p.error_msg {
+	color:#4A4A5C;
+	font-family:courier;
+	text-align:center;
+    border-style: solid;
+    border-color: #0000ff;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
 
 /*input[type="file"] {
 	color:transparent;
