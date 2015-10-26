@@ -1,11 +1,15 @@
 Some of the artefacts that I undertook for the second release are:
-1-	Validation for add book page (Story53), this includes ensuring book details fields are all filled up and the valid number/integer are entered in appropriate input fields. If so an in line error message shows the appropriate message for each.
+1-	Validation for add book page (Story53), this includes ensuring book details fields are all filled up and the 
+valid number/integer are entered in appropriate input fields. If so an in line error message shows the appropriate 
+message for each.
 2-	 Registration validation (Story53) this includes:
 a.	Checks if name is empty.
 b.	Checks If string are entered to numeric fields.
 c.	Checks email formatting.
-3-	Rating system for users (Story S27 and S29). Star rating system present the total rating in users profile and book details as well.
-4-	Feedback system for users (Story S30). Comment like feedback system presented in users profile, also comments can be thumbed up, down or reported for better content control.
+3-	Rating system for users (Story S27 and S29). Star rating system present the total rating in users profile and book 
+details as well.
+4-	Feedback system for users (Story S30). Comment like feedback system presented in users profile, also comments can be 
+thumbed up, down or reported for better content control.
 5-	Set Profile CSS that allows having multiple tabs and sections. 
 6-	Create registration form with all possible and required fields. Jonathan helped linking it to the database. (Story S23).
 7-	Create the log in form with all possible and required fields. Jonathan helped linking it to the database. (Story S63).
