@@ -1,0 +1,10 @@
+
+1-	Test Validation for add book page and registeration page (Story53), this includes ensuring book details fields are all filled
+up and the valid number/integer are entered in appropriate input fields. If so an in line error message shows the appropriate 
+message for each.
+2-	Testing Rating system for users (Story S27,S29 and S30). Star rating system present the total rating in users profile and 
+book details as well.
+3-	Testing that only QUT students are to log in, if other emails the system shows and error message. (Story S1).
+4-	Help creating registration form with all possible and required fields. Jonathan helped linking it to the database.(Story S23).
+5-	Test password strength and that teh approprate in line message shows. (Story51)
+
