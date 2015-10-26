@@ -5,6 +5,10 @@
 <script src="{{ asset('js/isbn.js') }}"></script>
 <script src="{{ asset('js/hyphenate.js') }}"></script>
 <script src="{{ asset('js/author.js') }}"></script>
+<!-- Simple Profile -->
+  <link rel="stylesheet" href="{{ asset('css/profilestyle.css') }}" type="text/css" /> 
+  <script src="{{ asset('js/jquery-profile.min.js') }}"></script>
+
 
 <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css" />
 <link rel="stylesheet" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" type="text/css" />
