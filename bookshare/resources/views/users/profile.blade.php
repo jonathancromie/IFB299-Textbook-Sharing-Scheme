@@ -54,7 +54,7 @@
   <div id="w">
     <div id="content" class="clearfix">
     
-      <div id="userphoto"><img src="http://community.nasdaq.com/common/images/defaultUserAvatar.jpg" alt="default avatar"></div>  <!-- src="img/avatar.png -->
+      <div id="userphoto"><img src="http://community.nasdaq.com/common/images/defaultUserAvatar.jpg" alt="default avatar" width="85" height="104" ></div>  <!-- src="img/avatar.png -->
       <h1> User Profile </h1>
 
       <nav id="profiletabs">
