@@ -11,62 +11,9 @@
 
 <!-- Input Validation -->
 
-<link rel="stylesheet" type="text/css" href="stylesheets/jquery.validate.css" />
-<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
-<!-- validate input -->
-<script type="text/javascript">
-/* <![CDATA[ */
-    jQuery(function(){
-        jQuery("#ValidField").validate({ 
-            expression: "if (VAL) return true; else return false;",
-            message: "Please enter the Required field"
-        });
-        jQuery("#author").validate({ 
-            expression: "if (VAL) return true; else return false;",
-            message: "Please enter the Required field"
-        });
-        jQuery("#location").validate({ 
-            expression: "if (VAL) return true; else return false;",
-            message: "Please enter the Required field"
-        });
-        jQuery("#publisher").validate({ 
-            expression: "if (VAL) return true; else return false;",
-            message: "Please enter the Required field"
-        });
-        jQuery("#edition").validate({ 
-            expression: "if (VAL) return true; else return false;",
-            message: "Please enter the Required field"
-        });                
-        
-        jQuery("#ValidDate").validate({
-            expression: "if (!isValidDate(parseInt(VAL.split('-')[2]), parseInt(VAL.split('-')[0]), parseInt(VAL.split('-')[1]))) return false; else return true;",
-            message: "Please enter a valid Date"
-        });
-        jQuery("#datetimepicker1").validate({
-            expression: "if (!isValidDate(parseInt(VAL.split('-')[2]), parseInt(VAL.split('-')[0]), parseInt(VAL.split('-')[1]))) return false; else return true;",
-            message: "Please enter a valid Date"
-        });               
-        jQuery("#datetimepicker2").validate({
-            expression: "if (!isValidDate(parseInt(VAL.split('-')[2]), parseInt(VAL.split('-')[0]), parseInt(VAL.split('-')[1]))) return false; else return true;",
-            message: "Please enter a valid Date"
-        });
-        jQuery("#ValidSelection").validate({
-            expression: "if (VAL != '0') return true; else return false;",
-            message: "Please make a selection"
-        });
-
-		jQuery('.AdvancedForm').validated(function(){
-			alert("Use this call to make AJAX submissions.");
-		});
-    });
-/* ]]> */
-</script>
-<script src="{{ asset('js/jquery-1.3.2.js') }}">
-</script>
-<script src="{{ asset('js/jquery.validate.js') }}">
-</script>
-<script src="{{ asset('js/jquery.validation.functions.js') }}">
-</script>
+<link rel="stylesheet" href="{{ asset('css/jquery.validate.css') }}" type="text/css" /> 
+<link rel="stylesheet" href="{{ asset('css/Vstyle.css') }}" type="text/css" />
+<script src="{{ asset('js/jquery-1.3.2.js') }}"></script>
 
 @section('title', 'Share Textbook')
 
@@ -80,14 +27,15 @@
 		<p>{{Session::get('bookError')}}</p>
 		<p>{{Session::get('sharerError')}}</p>
 		<form method="POST" action="books" accept-charset="UTF-8" enctype="multipart/form-data">
-			<input type="text" name="name" placeholder="Name" required><br>
+			<input type="text" id="ValidName" name="name" placeholder="Name" required><br>
 			<input type="text" id="author" name="author" placeholder="Author" required><br>
 			<span id="edit" onclick="edit();"></span><br>
 			<span id="isbnspan"></span><br>
 			<input type="text" id="isbn" name="isbn" placeholder="ISBN" required><br>	
-			<input type="text" name="publisher" placeholder="Publisher" required><br>
-			<input type="text" name="edition" placeholder="Edition" required><br>
-			<select name="faculty" required>
+			<input type="text" id="ValidPublisher" name="publisher" placeholder="Publisher" required><br>
+			<input type="text" id="ValidEdition" name="edition" placeholder="Edition" required><br>
+			<select name="faculty" id="ValidFaculty" required>
+				<option value="0">Make a Selection</option>
 				<option value="Buidling and Planning">Building and Planning</option>
 				<option value="Business">Business</option>
 				<option value="Creative, Design and Performance">Creative, Design and Performance</option>
@@ -101,7 +49,7 @@
 			</select>	
 			<br>
 	        <input type="text" class="form-control" id="datetimepicker1" name="pickup_date" placeholder="Pickup Date" required><br>		    
-			<input type="text" name="location" placeholder="Pickup Location" required><br>
+			<input type="text" id="ValidLocation" name="location" placeholder="Pickup Location" required><br>
 			<input type="text" class="form-control" id="datetimepicker2" name="due_date" placeholder="Due Date" required><br>
 			<input type="file" class="file" name="image" id="image" accept="image/gif, image/jpeg, image/png" required><br>
 			<input type="hidden" name="MAX_FILE_SIZE" value="20971520">
@@ -109,6 +57,10 @@
 			<input type="submit" value="Submit" onclick="edit();">
 		</form>
 	</div>
+
+<script src="{{ asset('js/jquery.validate.js') }}"></script>
+<script src="{{ asset('js/jquery.validation.functions.js') }}"></script>
+<script src="{{ asset('js/validate-share.js') }}"></script>
 
 <script src="{{ asset('js/moment.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>

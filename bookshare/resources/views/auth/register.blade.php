@@ -1,83 +1,13 @@
 @extends('layouts.master')
-<!-- Error box style  -->
-<style>
-p.error_msg {
-	color:#4A4A5C;
-	font-family:courier;
-	text-align:center;
-    border-style: solid;
-    border-color: #0000ff;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
-}
-</style>
-
 <!--Validate QUT email and password stregnth  -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="{{ asset('js/Qutemails.js') }}"></script>
 <script src="{{ asset('js/password-strength.js') }}"></script>
 <script src="{{ asset('js/jquery-1.3.2.js') }}"></script>
 
-<link rel="stylesheet" href="{{ asset('css/jquery.validate.css') }}" type="text/css"  />
-<link rel="stylesheet" href="{{ asset('css/Vstyle.css') }}" type="text/css" />
-
 <!-- Validate Form -->
 <link rel="stylesheet" href="{{ asset('css/jquery.validate.css') }}" type="text/css" /> 
-<link rel="stylesheet" href="{{ asset('css/Vstyle.css') }}" type="text/css" /> 
-<script src="{{ asset('js/jquery-1.3.2.js') }}">
-</script>
-<script src="{{ asset('js/jquery.validate.js') }}">
-</script>
-<script src="{{ asset('js/jquery.validation.functions.js') }}">
-</script>
-<script type="text/javascript">
-
-        <script type="text/javascript">
-        
-            /* <![CDATA[ */
-            jQuery(function(){
-                jQuery("#ValidField").validate({
-                    expression: "if (VAL) return true; else return false;",
-                    message: "Please enter the Required field"
-                });
-                jQuery("#ValidNumber").validate({
-                    expression: "if (!isNaN(VAL) && VAL) return true; else return false;",
-                    message: "Please enter a valid number"
-                });
-                jQuery("#phone").validate({
-                    expression: "if (!isNaN(VAL) && VAL) return true; else return false;",
-                    message: "Please enter a valid number"
-                });
-
-                jQuery("#email").validate({
-                    expression: "if (VAL.match(/^[^\\W][a-zA-Z0-9\\_\\-\\.]+([a-zA-Z0-9\\_\\-\\.]+)*\\@[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$/)) return true; else return false;",
-                    message: "Please enter a valid Email ID"
-                });
-
-                jQuery("#ValidConfirmPassword").validate({
-                    expression: "if ((VAL == jQuery('#password').val()) && VAL) return true; else return false;",
-                    message: "Confirm password field doesn't match the password field"
-                });
-                jQuery("#ValidSelection").validate({
-                    expression: "if (VAL != '0') return true; else return false;",
-                    message: "Please make a selection"
-                });
-                jQuery("#state").validate({
-                    expression: "if (VAL != '0') return true; else return false;",
-                    message: "Please make a selection"
-                });
-
-				jQuery('.AdvancedForm').validated(function(){
-					alert("Use this call to make AJAX submissions.");
-				});
-            });
-            /* ]]> */
-        </script>
-        
-        
-@extends('layouts.master')
+<link rel="stylesheet" href="{{ asset('css/Vstyle.css') }}" type="text/css" />        
 
 @section('title', 'Sign Up')
 
@@ -133,7 +63,7 @@ p.error_msg {
 
     <script src="{{ asset('js/jquery.validate.js') }}"></script>
     <script src="{{ asset('js/jquery.validation.functions.js') }}"></script>
-    <script src="{{ asset('js/validate_registration.js') }}"></script>   
+    <script src="{{ asset('js/validate-registration.js') }}"></script>   
 
     <script type="text/javascript">
         /* <![CDATA[ */
