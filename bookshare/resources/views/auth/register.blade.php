@@ -46,7 +46,7 @@ p.error_msg {
                     message: "Please enter a valid number"
                 });
 
-                jQuery("#Email").validate({
+                jQuery("#email").validate({
                     expression: "if (VAL.match(/^[^\\W][a-zA-Z0-9\\_\\-\\.]+([a-zA-Z0-9\\_\\-\\.]+)*\\@[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$/)) return true; else return false;",
                     message: "Please enter a valid Email ID"
                 });
@@ -94,18 +94,19 @@ p.error_msg {
 
         <!-- <span id="emailspan"></span><br> -->
         <input type="text" name="email" id="email" value="{{ old('email') }}" placeholder="Email" required><br>
-        <input type="text" name="first_name" value="{{ old('first_name') }}" placeholder="First Name" required><br>       
+        <input type="text" name="first_name" id="ValidField"  value="{{ old('first_name') }}" placeholder="First Name" required><br>       
         <input type="text" name="last_name" value="{{ old('last_name') }}" placeholder="Last Name" required><br>
-        <select name="sex" value="{{ old('sex') }}" required>
+        <select name="sex" id="ValidSelection" value="{{ old('sex') }}" required>
+            <option value="0">Make a Selection</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
         </select><br>
         <input type="date" name="dob" value="{{ old('dob') }}" placeholder="Date of Birth" required><br>
-        <input type="text" name="phone" value="{{ old('phone') }}" placeholder="Phone Number" required><br>
+        <input type="text" id="phone" name="phone" value="{{ old('phone') }}" placeholder="Phone Number" required><br>
         <input type="text" name="street" value="{{ old('street') }}" placeholder="Street" required><br>
         <input type="text" name="suburb" value="{{ old('suburb') }}" placeholder="Suburb" required><br>
-        <input type="text" name="post_code" value="{{ old('post_code') }}" placeholder="Post Code" required><br>
-        <select name="state" value="{{ old('state') }}" required>
+        <input type="text" id="ValidNumber" name="post_code" value="{{ old('post_code') }}" placeholder="Post Code" required><br>
+        <select name="state" id="state" value="{{ old('state') }}" required>
             <option value="ACT">ACT</option>
             <option value="NSW">NSW</option>
             <option value="NT">NT</option>
@@ -116,7 +117,7 @@ p.error_msg {
         </select><br>
         <span id="passstrength"></span><br>
         <input type="password" name="password" id="password" placeholder="Password" required><br>		
-        <input type="password" name="password_confirmation" placeholder="Confirm Password" required><br>
+        <input type="password" id="ValidConfirmPassword" name="password_confirmation" placeholder="Confirm Password" required><br>
         <input type="checkbox" name="agreed" value="1"  required> By submitting this I agree to Bookshare <a href=" ">Terms and conditions.</a>
 
         <input type="submit" value="Register">
