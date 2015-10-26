@@ -5,64 +5,90 @@
 @section('content')
     @parent
     <h2>Profile</h2> 
+<body>
 
-    <!-- If user is not logged in -->
+  <div id="w">
+    <div id="content" class="clearfix">
+    
+      <div id="userphoto"><img src="http://community.nasdaq.com/common/images/defaultUserAvatar.jpg" alt="default avatar"></div>  <!-- src="img/avatar.png -->
+      <h1> User Profile </h1>
 
-    <h1>Basic Information</h1>
+      <nav id="profiletabs">
+        <ul class="clearfix">
+          <li><a href="#bio" class="sel">Bio</a></li>
+          <li><a href="#activity">Contact Information</a></li>
+          <li><a href="#friends">Shared Books</a></li>
+          <li><a href="#settings">Borrowed Books</a></li>
+          <!-- <li><a href="#settings"> Feedback </a></li> -->
+        </ul>
+      </nav>
+      
+    <!-- Tab 1 : basic info + rating -->    
+      <section id="bio">    
+            <!-- Basic info-->
+        <p class="setting"><span> Given Name </span> {{ Auth::user()->first_name }} </p>
+        
+        <p class="setting"><span> Surname </span> {{ Auth::user()->last_name }} </p>
+        
+        <p class="setting"><span>Sex </span> {{ Auth::user()->sex }} </p>
+        
+        <p class="setting"><span>Date of Birth </span> {{ Auth::user()->dob }} </p>
+        
+        <p class="setting"><span>Edit <img src="img/edit.png" alt="*Edit*"></span> <a class="btn btn-small btn-success" href="{{ URL::to('user/profile') }}">Edit</a> </p>
 
-    <table>
-    	<thead>
-    		<tr>
-    			<td>Given Name</td>
-    			<td>Surname</td>
-    			<td>Sex</td>
-    			<td>Date of Birth</td>
-    			<td>Edit</td>
-    		</tr>
-    	</thead>
-    	<tbody>
-    		<tr>
-    			<td>{{ Auth::user()->first_name }}</td>
-    			<td>{{ Auth::user()->last_name }}</td>
-    			<td>{{ Auth::user()->sex }}</td>
-    			<td>{{ Auth::user()->dob }}</td>
-    			<td>
-	                <a class="btn btn-small btn-success" href="{{ URL::to('user/profile') }}">Edit</a>
-	            </td>
-    		</tr>
-    	</tbody>
-    </table>
+  			</br>      
+            <!-- Star Rating -->
+       
 
-    <h1>Contact Information</h1>
+            <!-- feedback  -->
+            
+            <!-- if des -->
+           <!-- begin wwww.htmlcommentbox.com -->
+ <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>
+ <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+ <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10&ts=1445797376758");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+			<!-- end www.htmlcommentbox.com -->
+            
+      </section>
+      
+  <!-- Tab 2 : Contact Information -->        
+      <section id="activity" class="hidden">
+<table border="1" style="width:100%">
+  <tr>
+    <td>Email Address</td>
+    <td>{{ Auth::user()->email }}</td>		
+  </tr>
 
-    <table>
-    	<thead>
-    		<tr>
-    			<td>Email Address</td>
-    			<td>Phone Number</td>
-    			<td>Street</td>
-    			<td>Suburb</td>
-    			<td>Post Code</td>
-    			<td>State</td>
-    			<td>Edit</td>
-    		</tr>
-    	</thead>
-    	<tbody>
-    		<tr>
-    			<td>{{ Auth::user()->email }}</td>
-    			<td>{{ Auth::user()->phone }}</td>
-    			<td>{{ Auth::user()->street }}</td>
-    			<td>{{ Auth::user()->suburb }}</td>
-    			<td>{{ Auth::user()->post_code }}</td>
-    			<td>{{ Auth::user()->state }}</td>
-    			<td>
-	                <a class="btn btn-small btn-success" href="{{ URL::to('user/profile') }}">Edit</a>
-	            </td>
-    		</tr>
-    	</tbody>
-    </table>
+  <tr>
+    <td>Phone Number</td>
+    <td>{{ Auth::user()->phone }}</td>		
+  </tr>
 
-    <h1>Shared Books</h1>   
+  <tr>
+    <td>Street</td>
+    <td>{{ Auth::user()->street }}</td>		
+  </tr>
+
+  <tr>
+    <td>Suburb</td>
+    <td>{{ Auth::user()->suburb }}</td>		
+  </tr>
+  <tr>
+    <td>Post Code</td>
+    <td>{{ Auth::user()->post_code }}</td>		
+  </tr>
+  <tr>
+    <td>State</td>
+    <td>{{ Auth::user()->state }}</td>		
+  </tr>
+</table>
+        <p class="setting"><span>Edit <img src="img/edit.png" alt="*Edit*"></span> <a class="btn btn-small btn-success" href="{{ URL::to('user/profile') }}">Edit</a> </p>
+
+      </section>
+      
+  <!-- Tab 3: Shared Books -->    
+      <section id="friends" class="hidden">
+
     <table>
         <thead> 
             <tr>
@@ -85,9 +111,13 @@
             @endforeach
         </tbody>
     </table>
+      </section>
 
-    <h1>Borrowed Books</h1>   
-    <table>
+
+  <!-- Tab 4: Borrowed Books -->         
+      <section id="settings" class="hidden">
+
+<table>
         <thead> 
             <tr>
                 <td>Book</td>
@@ -109,5 +139,33 @@
             @endforeach
         </tbody>
     </table>
+
+@endsection
+      </section>
+      
+
+     
+     
+    </div><!-- @end #content -->
+  </div><!-- @end #w -->
+  
+<script type="text/javascript">
+$(function(){
+  $('#profiletabs ul li a').on('click', function(e){
+    e.preventDefault();
+    var newcontent = $(this).attr('href');
+    
+    $('#profiletabs ul li a').removeClass('sel');
+    $(this).addClass('sel');
+    
+    $('#content section').each(function(){
+      if(!$(this).hasClass('hidden')) { $(this).addClass('hidden'); }
+    });
+    
+    $(newcontent).removeClass('hidden');
+  });
+});
+</script>
+</body>
 
 @endsection
