@@ -4,8 +4,52 @@
 
 @section('content')
     @parent
-    <h2>Profile</h2> 
+
+    <head>
+    	
+  <title>User Profile </title>
+  
+  
+         <link rel="stylesheet" href="{{ asset('css/profilestyle.css') }}" type="text/css" /> 
+         <script src="{{ asset('js/jquery-profile.min.js') }}"></script> 
+        
+
+
+<script type="text/javascript">(function(d, t, e, m){
+    
+    // Async Rating-Widget initialization.
+    window.RW_Async_Init = function(){
+                
+        RW.init({
+            huid: "265016",
+            uid: "54cf6b439223e4998e990d50a81b0b1d",
+            source: "website",
+            options: {
+                "size": "medium",
+                "style": "oxygen",
+                "isDummy": false
+            } 
+        });
+        RW.render();
+    };
+        // Append Rating-Widget JavaScript library.
+    var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+        l = d.location, ck = "Y" + t.getFullYear() + 
+        "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+        f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+        a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+    if (d.getElementById(id)) return;              
+    rw = d.createElement(e);
+    rw.id = id; rw.async = true; rw.type = "text/javascript";
+    rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+    s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));</script>
+
+
+  
+</head>
 <body>
+
 
   <div id="w">
     <div id="content" class="clearfix">
@@ -38,11 +82,9 @@
 
   			</br>      
             <!-- Star Rating -->
-       
+  <div class="rw-ui-container"></div>
 
             <!-- feedback  -->
-            
-            <!-- if des -->
            <!-- begin wwww.htmlcommentbox.com -->
  <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>
  <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
