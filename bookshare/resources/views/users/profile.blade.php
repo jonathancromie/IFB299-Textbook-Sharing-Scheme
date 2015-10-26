@@ -2,84 +2,28 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="{{ asset('js/profile-tabs.js') }}"></script>
+<script src="{{ asset('js/profile-rating.js') }}"></script>
 <link rel="stylesheet" href="{{ asset('css/profilestyle.css') }}" type="text/css" />
+
+ <!--<script src="{{ asset('js/jquery-profile.min.js') }}"></script> -->
 
 @section('title', 'Profile')
 
 @section('content')
     @parent
-<<<<<<< HEAD
     <h2>Profile</h2> 
 
-    <img src="http://community.nasdaq.com/common/images/defaultUserAvatar.jpg" alt="default avatar">  <!-- src="img/avatar.png -->
-=======
-
-    <head>
-    	
-  <title>User Profile </title>
-  
-  
-         <link rel="stylesheet" href="{{ asset('css/profilestyle.css') }}" type="text/css" /> 
-         <script src="{{ asset('js/jquery-profile.min.js') }}"></script> 
-        
-
-
-<script type="text/javascript">(function(d, t, e, m){
-    
-    // Async Rating-Widget initialization.
-    window.RW_Async_Init = function(){
-                
-        RW.init({
-            huid: "265016",
-            uid: "54cf6b439223e4998e990d50a81b0b1d",
-            source: "website",
-            options: {
-                "size": "medium",
-                "style": "oxygen",
-                "isDummy": false
-            } 
-        });
-        RW.render();
-    };
-        // Append Rating-Widget JavaScript library.
-    var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
-        l = d.location, ck = "Y" + t.getFullYear() + 
-        "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
-        f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
-        a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
-    if (d.getElementById(id)) return;              
-    rw = d.createElement(e);
-    rw.id = id; rw.async = true; rw.type = "text/javascript";
-    rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
-    s.parentNode.insertBefore(rw, s);
-    }(document, new Date(), "script", "rating-widget.com/"));</script>
-
-
-  
-</head>
-<body>
-
-
-  <div id="w">
-    <div id="content" class="clearfix">
-    
-      <div id="userphoto"><img src="http://community.nasdaq.com/common/images/defaultUserAvatar.jpg" alt="default avatar" width="85" height="104" ></div>  <!-- src="img/avatar.png -->
-      <h1> User Profile </h1>
->>>>>>> origin/master
-
-    <div id="w">
-      <div id="content" class="clearfix">      
-        
-        <!-- <h1> User Profile </h1> -->
-        <nav id="profiletabs">
-          <ul class="clearfix">
-            <li><a href="#bio" class="sel">Bio</a></li>
-            <li><a href="#activity">Contact Information</a></li>
-            <li><a href="#friends">Shared Books</a></li>
-            <li><a href="#settings">Borrowed Books</a></li>
-            <!-- <li><a href="#settings"> Feedback </a></li> -->
-          </ul>
-        </nav>
+    <img src="http://community.nasdaq.com/common/images/defaultUserAvatar.jpg" alt="default avatar">  <!-- src="img/avatar.png -->  
+    <table>
+      <thead>
+        <tr>
+          <td><a href="#bio" class="sel">Bio</a></td>
+          <td><a href="#activity">Contact Information</a></td>
+          <td><a href="#friends">Shared Books</a></td>
+          <td><a href="#settings">Borrowed Books</a></td>
+        </tr>
+      </thead>
+    </table>  
         
       <!-- Tab 1 : basic info + rating -->    
         <section id="bio">    
