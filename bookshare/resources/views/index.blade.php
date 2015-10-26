@@ -32,7 +32,7 @@
 								<!-- <i class="fa fa-search fa-2x"></i> -->
 								<i class="material-icons md-96">search</i>
 								<a href="search"><h3>Find a Textbook</h3></a>
-								<p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
+								<p>Search for a textbook in the database.</p>
 							</section>
 						</div>
 						<div class="4u">
@@ -44,7 +44,7 @@
 								@else
 									<a href="login"><h3>Share a Textbook</h3></a>
 								@endif
-								<p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
+								<p>Share a textbook with other students.</p>
 							</section>
 						</div>
 						<div class="4u">
@@ -56,7 +56,7 @@
 								@else
 									<a href="login"><h3>Borrow a Textbook</h3></a>
 								@endif
-								<p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
+								<p>Borrow a textbook from another student.</p>
 							</section>
 						</div>
 					</div>

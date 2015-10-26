@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 @extends('layouts.master')
-=======
 <!-- Error box style  -->
 <style>
 p.error_msg {
@@ -15,7 +13,6 @@ p.error_msg {
     margin-right: 0;
 }
 </style>
->>>>>>> origin/master
 
 <!--Validate QUT email and password stregnth  -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -23,10 +20,9 @@ p.error_msg {
 <script src="{{ asset('js/password-strength.js') }}"></script>
 <script src="{{ asset('js/jquery-1.3.2.js') }}"></script>
 
-<<<<<<< HEAD
 <link rel="stylesheet" href="{{ asset('css/jquery.validate.css') }}" type="text/css"  />
 <link rel="stylesheet" href="{{ asset('css/Vstyle.css') }}" type="text/css" />
-=======
+
 <!-- Validate Form -->
 <link rel="stylesheet" href="{{ asset('css/jquery.validate.css') }}" type="text/css" /> 
 <link rel="stylesheet" href="{{ asset('css/Vstyle.css') }}" type="text/css" /> 
@@ -82,7 +78,6 @@ p.error_msg {
         
         
 @extends('layouts.master')
->>>>>>> origin/master
 
 @section('title', 'Sign Up')
 
@@ -104,16 +99,13 @@ p.error_msg {
 
         <!-- <span id="emailspan"></span><br> -->
         <input type="text" name="email" id="email" value="{{ old('email') }}" placeholder="Email" required><br>
-<<<<<<< HEAD
         <input type="text" name="first_name" id="ValidFirstName" value="{{ old('first_name') }}" placeholder="First Name" required><br>       
         <input type="text" name="last_name" id="ValidLastName" value="{{ old('last_name') }}" placeholder="Last Name" required><br>
         <select name="sex" value="{{ old('sex') }}" required>
-=======
         <input type="text" name="first_name" id="ValidField"  value="{{ old('first_name') }}" placeholder="First Name" required><br>       
         <input type="text" name="last_name" value="{{ old('last_name') }}" placeholder="Last Name" required><br>
         <select name="sex" id="ValidSelection" value="{{ old('sex') }}" required>
             <option value="0">Make a Selection</option>
->>>>>>> origin/master
             <option value="Male">Male</option>
             <option value="Female">Female</option>
         </select><br>
