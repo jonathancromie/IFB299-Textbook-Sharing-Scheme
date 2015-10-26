@@ -6,7 +6,7 @@ If not this will return error msg explaining that users should be qut students
 */
 
 $(document).ready(function() {
-  $('#email').focusout(function() {
+  $('#ValidEmail').focusout(function() {
     checkemail();
   });
 });
@@ -14,7 +14,7 @@ $(document).ready(function() {
 //QUT Email Check
 var testresults
 function checkemail(){
-var str=document.getElementById("email").value
+var str=document.getElementById("ValidEmail").value
 var filter=/^([\w-]+(?:\.[\w-]+)*)@connect.qut.edu.au/i
 if (filter.test(str)) {
 	// $('#emailspan').html('');
@@ -23,6 +23,7 @@ if (filter.test(str)) {
 }
 else{
 	document.getElementById("errors").style.display = 'inline';
+	document.getElementById("errors").style.color = "red";
 	// $('#emailspan').html('Please input correct email');
 	testresults=false
 }

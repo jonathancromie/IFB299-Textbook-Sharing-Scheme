@@ -37,10 +37,7 @@
             expression: "if (VAL) return true; else return false;",
             message: "Please enter the Required field"
         });                
-        jQuery("#isbn").validate({
-            expression: "if (!isNaN(VAL) && VAL) return true; else return false;",
-            message: "Please enter a valid number"
-        });
+        
         jQuery("#ValidDate").validate({
             expression: "if (!isValidDate(parseInt(VAL.split('-')[2]), parseInt(VAL.split('-')[0]), parseInt(VAL.split('-')[1]))) return false; else return true;",
             message: "Please enter a valid Date"
