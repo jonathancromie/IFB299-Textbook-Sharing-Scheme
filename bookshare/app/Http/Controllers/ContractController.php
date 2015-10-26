@@ -21,21 +21,35 @@ class ContractController extends Controller
         $contract->borrower_id = $borrower_id;
         $contract->save();
 
-        Mail::send('emails.success', ['contract' => $contract], function ($m) use ($contract) {
-            $m->to(Auth::user()->email, Auth::user()->first_name)->subject('Successfully Borrowed Textbook!');
+        $student = Student::where('student_id', $borrower_id)->first();
+
+        $data = array(
+            'email' => $student->email,
+            'fist_name' => $student->first_name,
+        );
+
+        Mail::send('emails.success', $data, function($message) use ($data){
+            $message->from('sharebookqut@gmail.com', 'ShareBook');
+            $message->to($data['email']);
+            $message->subject('Successfully Borrowed Textbook!');
         });
 
         $due_date = new DateTime($contract->due_date);
         $reminder_date = $due_date->modify('-1 Week');
+        $today = new DateTime("now");        
+        $interval =  $reminder_date->getTimestamp() - $today->getTimestamp();
 
-        Mail::later($reminder_date, 'emails.reminder', ['contract' => $contract], function ($m) use ($contract) {
-            $m->to(Auth::user()->email, Auth::user()->first_name)->subject('Due Date Reminder');
+        \Log::info(gettype($interval));
+
+        
+
+        Mail::later($interval, 'emails.reminder', $data, function($message) use ($data){
+            $message->from('sharebookqut@gmail.com', 'ShareBook');
+            $message->to($data['email']);
+            $message->subject('Due Date Reminder');
         });
 
-        \Log::info($reminder_date->format('Y-m-d H:i:s'));
-
         $book = Book::where('book_id', $contract->book_id);
-        // \Log::info($book->book_id);
         $book->delete();
 
         \Session::flash('message', 'Successfully borrowed textbook!');  
