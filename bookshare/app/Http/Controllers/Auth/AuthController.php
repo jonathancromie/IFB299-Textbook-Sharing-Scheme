@@ -125,7 +125,15 @@ class AuthController extends Controller
 
         Auth::login($this->create($request->all()));
 
+        $student = Auth::user();
+
         \Session::flash('message', 'You have successfully registered.');
+
+        Mail::send('emails.welcome', ['student' => $student], function($message) use ($student){
+            $message->from('sharebookqut@gmail.com', 'ShareBook');
+            $message->to($student->email);
+            $message->subject('Welcome to ShareBook');
+        });
 
         
 
@@ -175,12 +183,6 @@ class AuthController extends Controller
             'state' => $data['state'],
             'password' => bcrypt($data['password']),
         ]);
-
-        Mail::send('emails.welcome', $data, function($message) use ($data){
-            $message->from('sharebookqut@gmail.com', 'ShareBook');
-            $message->to($data->email);
-            $message->subject('Welcome to ShareBook');
-        });
 
         return $student;
     }
