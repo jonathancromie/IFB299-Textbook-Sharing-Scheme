@@ -1,9 +1,5 @@
-@extends('layouts.master')
-
-@section('content')
-@parent
 <p>
-	Hey {{ $first_name }},
+	Hey,
 
 	Welcome to ShareBook!
 
@@ -11,4 +7,3 @@
 
 	If you have any questions, please reply to this email.
 </p>
-@endsection

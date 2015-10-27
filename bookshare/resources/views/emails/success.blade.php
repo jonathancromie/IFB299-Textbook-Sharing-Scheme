@@ -1,5 +1,5 @@
 <p>
-	Hey {{ $student->first_name }},
+	Hey,
  
 	Congratulations, you have successfully borrowed a textbook.
 

@@ -54,7 +54,7 @@
         <span id="passstrength"></span><br>
         <input type="password" name="password" id="password" placeholder="Password" required><br>		
         <input type="password" id="ValidConfirmPassword" name="password_confirmation" placeholder="Confirm Password" required><br>
-        <input type="checkbox" name="agreed" value="1"  required>I agree to Bookshare's <a href="terms">Terms and conditions.</a><br>
+        <input type="checkbox" name="agreed" value="1"  required>I agree to ShareBooks's <a href="terms">Terms and conditions.</a><br>
 
         <input type="submit" value="Register">
     </form>
